@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>10-25</title>
+<style>
+img.scape_hidden { display: none; }
+img.scape_visible { display: block; }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	var handle;
+	function viewSlide() {
+		var slider = $("#slider");
+		slider.find("img.scape_visible").removeClass("scape_visible");
+		slider.find("img:first").appendTo(slider).addClass("scape_visible");
+	}
+	
+	$("#slideStart").click(function() {
+		handle = setInterval(viewSlide, 2000);
+	});
+	$("#slideStop").click(function() {
+		clearInterval(handle);
+	});	
+	viewSlide();
+});
+</script>
+</head>
+<body>
+	<button id="slideStart">Slide Show!</button>
+	<button id="slideStop">Stop Slide Show!</button>
+	<h3>죽기 전에 가보고 싶은 곳 5</h3>
+	<div id="slider">
+		<img class="scape_hidden" src="images/capetown.jpg" />
+		<img class="scape_hidden" src="images/chichenitza.jpg" />
+		<img class="scape_hidden" src="images/machu.jpg" />
+		<img class="scape_hidden" src="images/niagarafalls.jpg" />
+		<img class="scape_hidden" src="images/tajmahal.jpg" />
+	</div>
+</body>
+</html>

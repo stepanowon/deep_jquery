@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>14-01</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$.ajax({
+		url : "/contact/list.jsp",
+		type : "GET",
+		data : { pageno:2, pagesize:5 },
+		success : function(data) {
+			console.log(data);
+		}
+	});
+});
+</script>
+</head>
+<body>
+	<h2>console을 확인합니다.</h2>
+</body>
+</html>

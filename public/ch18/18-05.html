@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>18-05</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	//지연 객체의 생성
+	var d = $.Deferred();
+	d.done(function() {
+		$("#result").html("성공");
+	}).fail(function() {
+		$("#result").html("실패");
+	}).always(function() {
+		$("#result").append(", 항상 실행")
+	});
+
+	$("#success").click(function() {
+		d.resolve();
+	});
+
+	$("#fail").click(function() {
+		d.reject();
+	});
+});
+</script>
+</head>
+<body>
+	<button id="success">성공!!</button>
+	<button id="fail">실패!!</button>
+	<hr />
+	결과 : <span id="result"></span>
+</body>
+</html>

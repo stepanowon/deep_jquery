@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>07-08</title>
+<style>
+    #content { width: 100%;  }
+    .lang {   width:80px; height:60px; margin:5px; float:left; 
+        font-size:10pt; background-color: aqua; text-align: center; }    
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#korean ~ div").css("border", "solid 2px gray");
+    });
+</script>
+</head>
+<body>
+    <div>
+        각 나라별 인사말입니다.<br />
+        외국여행도 쉽게 가게되고, 외국인들과의 교류도 많아진 요즘 
+        간단한 나라별 인사정도는 알아두면 좋을 것 같아요
+    </div>
+    <hr />
+    <div id="content">
+        <div class="lang" id="english">Hello</div>
+        <div class="lang" id="japanese">初めまして (하지메마시테)</div>
+        <div class="lang" id="chinese">您好 (닌하오) </div>
+        <div class="lang" id="korean">안녕하세요</div>
+        <div class="lang" id="deutch">Guten Tag (구텐탁)</div>
+        <div class="lang" id="spanish">Hola (올라)</div>
+        <div class="lang" id="vietnam">Xin chào (씬짜오)</div>
+        <span class="lang" id="russian">Здравствуйте (즈드랏스부이쪠)</span>
+        <div class="lang" id="italy">Buon giorno (부온죠르노)</div>
+        <span class="lang" id="indonesian">Apa kabar (아빠까바르)</span>
+    </div>
+</body>
+</html>

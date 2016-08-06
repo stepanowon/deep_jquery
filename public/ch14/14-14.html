@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>14-14</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#save").click(function() {
+		var name = $("#name").val();
+		var gender = $("input.gender:checked").val();
+		var age = $("#age > option:selected").val();
+		
+		var param = "name=" + encodeURIComponent(name);
+		param += "&gender="+gender + "&age=" + age;
+		
+		console.log(param);
+	});
+});
+</script>
+</head>
+<body>
+	<form id="f1">
+		이름 : <input type="text" id="name" name="name"/><br />
+		성별 : 
+		  남<input type="radio" class="gender" name="gender" value="M" checked />
+		  여<input type="radio" class="gender" name="gender" value="F" /><br />
+		연령대 : <select id="age" name="age">
+			<option value="" selected>--연령대를 선택하세요--</option>
+			<option value="10">~19</option>
+			<option value="20">20~29</option>
+			<option value="30">30~39</option>
+			<option value="40">40~49</option>
+			<option value="50">50~59</option>
+			<option value="60">60~</option>
+		</select>
+	</form>
+	<button id="save">저장</button>
+</body>
+</html>

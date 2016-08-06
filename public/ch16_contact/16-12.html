@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>16-final</title>
+<link rel="stylesheet" type="text/css" href="jpaginate/style.css" />
+<link rel="stylesheet" type="text/css" href="waitme/waitMe.css" />
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/humanity/jquery-ui.css" />
+<style>
+	body { font-size: 75%; }
+    input.text { margin-bottom:12px; width:95%; padding: .4em; }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script src="https://www.jsviews.com/download/jsrender.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<script src="waitme/waitMe.js"></script>
+<script src="jpaginate/jquery.paginate.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+	// 1. 공통 변수, 옵션
+	var param = { pageno:1, pagesize:2 };
+	var totalPage = 0;
+
+	var pageOption = {
+		count : 1,
+		start : 1,
+		display : 10,
+		border : true,
+		border_color : "#333333",
+		text_color : "#ffffff",
+		background_color : "#cb842e",	
+		border_hover_color : "#333333",
+		text_hover_color  : "#000000",
+		background_hover_color : "#cb842e", 
+		images : false,
+		mouse : "press",
+		onChange : function(page) {
+			param.pageno = page;
+			viewContactList();
+		}
+	};
+	
+	$("#input_dialog").dialog({
+		autoOpen: false,
+		modal : true
+	});
+	
+	// 2. 공통 함수
+	var viewContactList = function() {
+		$.get("/contact/list_long.jsp", param, function(data) {
+
+			$("#contactlist").empty();
+			var tmpl = $.templates("#tmpl_contact");
+			var str =  tmpl.render(data.contacts);
+			$("#contactlist").html(str);
+
+			totalPage = Math.floor((data.totalCount-1)/ param.pagesize) + 1;
+			pageOption.count = totalPage;
+			pageOption.start = param.pageno;
+			$("#paging").paginate(pageOption);
+		});
+	};	
+	
+	var ajaxLoading = function(isLoading){
+		if (isLoading == false) {
+			$("body").waitMe("hide");
+		} else {
+			$("body").waitMe({
+				effect: "ios",
+				text: "처리중입니다.",
+				bg: 'rgba(255,255,255,0.7)',
+				color: '#000',
+				source: 'waitme/img.svg',
+			});			
+		}
+	};
+	
+	var addContact = function() {
+		var param = $("form#f_contact").serialize();
+		$.post("/contact/add.jsp", param, function(data) {
+			if (data.status == "ok") {
+				param.pageno = 1;
+				viewContactList();
+			} else {
+				alert("연락처 추가 실패 : "  + data.message);
+			}
+			$("#input_dialog").dialog("close");
+		});
+	};
+
+	var cancelInput = function() {
+		$("#input_dialog").dialog("close");
+	};
+
+	var initializeInputForm = function() {
+		$("form#f_contact")[0].reset();
+	};
+
+	var editContact = function(no) {
+		$.get("/contact/contact.jsp", { no: no }, function(data) {
+			if (data.errormessage) {
+				alert("데이터 조회 중 오류 : " + data.errormessage);
+			}  else {
+				var dialog = $("#input_dialog");
+				dialog.find("#no").val(data.no);
+				dialog.find("#name").val(data.name);
+				dialog.find("#tel").val(data.tel);
+				dialog.find("#address").val(data.address);
+				dialog.dialog({
+					autoOpen:true,
+					modal : true,
+					buttons : {
+						"수정" : updateContact,
+						"취소" : cancelInput
+					}
+				});
+			}
+		});		
+	};
+
+	var updateContact = function() {
+		var paramArray = $("#f_contact").serializeArray();
+		paramArray.push({ name:"no", value:$("#no").val() });
+		var param = $.param(paramArray);
+		$.post("/contact/update.jsp", param, function(data) {
+			if (data.status == "ok") {
+				viewContactList();
+			} else {
+				alert("연락처 변경 실패 : "  + data.message);
+			}
+			$("#input_dialog").dialog("close");
+		});
+		
+	};
+
+	var deleteContact = function(no) {
+		if (confirm("이 연락처를 정말로 삭제할까요?")  == true) {
+			var param = {};
+			param.no = no;
+			$.post("/contact/delete.jsp", param, function(data) {
+				if (data.status == "ok") {
+					viewContactList();
+				} else {
+					alert("연락처 삭제 실패 : " + data.message);
+				}			
+			});					
+		}
+	};
+
+	// 3. 이벤트 처리
+	$(document).ajaxStart(function() {
+		ajaxLoading(true);
+	}).ajaxStop(function() {
+		ajaxLoading(false);
+	});
+	
+	$("#btnNewContact").click(function() {
+		initializeInputForm();
+		$("#input_dialog").dialog({
+			modal : true,
+			buttons : {
+				"추가" : addContact,
+				"취소" : cancelInput
+			}
+		});
+		$("#input_dialog").dialog("open");
+	});
+	
+	$("#contactlist").on("click", "button.update", function() {
+		var no = $(this).data("no");
+		console.log(no);
+		editContact(no);
+	});
+	
+	$("#contactlist").on("click", "button.delete", function() {
+		var no = $(this).data("no");
+		deleteContact(no);
+	});
+	
+	// 4. 화면 초기화 코드
+	viewContactList();
+
+});
+</script>
+<script id="tmpl_contact" type="text/x-jsrender">
+	<tr>
+		<td>{{:no}}</td>
+		<td>{{:name}}</td>
+		<td>{{:tel}}</td>
+		<td>{{:address}}</td>
+		<td>
+			<button data-no="{{:no}}" role="button" 
+				class="update ui-button ui-button ui-state-default ui-button-text-only">
+				<span class="ui-button-text">수정</span>
+			</button>
+			<button data-no="{{:no}}" role="button" 
+				class="delete ui-button ui-button ui-state-default ui-button-text-only">
+				<span class="ui-button-text">삭제</span>
+			</button>		
+		</td>
+	</tr>
+</script>
+</head>
+<body>
+	<h2 class="ui-widget ui-header">연락처 리스트</h2>
+	<button role="button" id="btnNewContact" 
+		class="add ui-button ui-button ui-state-default ui-button-text-only">
+		<span class="ui-button-text">새로운 연락처 추가</span>
+	</button>		
+	<div id="output"  style="text-align:center;width:630px;">
+		<table id="contact_table" style="border:solid 1px black;">
+			<thead>
+				<tr style="background-color: #cb842e; color:white;">
+					<th style="width:60px;">번호</th>
+					<th style="width:90px;">이름</th>
+					<th style="width:100px;">전화번호</th>
+					<th style="width:250px;">주소</th>
+					<th style="width:130px;">기능</th>
+				</tr>
+			</thead>
+			<tbody id="contactlist">
+			
+			</tbody>
+		</table>
+		<div id="paging" ></div>
+	</div>
+
+	<div id="input_dialog"  title="연락처 추가/수정">
+		<form id="f_contact">
+			<label for="no">일련번호</label>
+	    	<input type="text" name="no" id="no" class="text" disabled />
+	    	<label for="name">이름</label>
+	    	<input type="text" name="name" id="name" class="text" />
+	    	<label for="tel">전화번호</label>
+	    	<input type="text" name="tel" id="tel" class="text" />
+	    	<label for="address">주소</label>
+	    	<input type="text" name="address" id="address" class="text" />
+		</form>
+	</div>
+</body>
+</html>

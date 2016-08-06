@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>12-08</title>
+<style>
+img#a { width:128px; height:96px; position: absolute; top:150px; left: 10px; }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {		
+	function completeCB() {
+		var q = $("#a").queue().slice();
+		console.log("큐 길이 : " + q.length)
+		console.log(q);
+	}
+	
+	$("#start").click(function() {
+		$("#a").animate({
+			left : 200, 
+			top : 200
+		}, 2000, completeCB).animate({
+			width : "+=128",
+			height: "+=96",
+			top: "-=48", 
+			left: "-=64"
+		}, 2000, completeCB).delay(4000).animate({
+			opacity:0.3
+		}, 1000, completeCB);
+	});
+});
+</script>
+</head>
+<body>
+	<button id="start">Start</button>
+	<br />
+	<img id="a" src="images/free5.jpg" />
+</html>

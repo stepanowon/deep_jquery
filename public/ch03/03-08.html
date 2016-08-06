@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title></title>
+<script type="text/javascript">
+function test(callback) {
+    if (typeof callback != "function") {
+         throw "callback 파라미터 값으로 함수만 전달가능합니다";   
+    }
+    callback();
+}
+    
+test(function() { 
+    console.log("hello");  
+})
+</script>
+</head>
+<body>
+
+</body>
+</html>

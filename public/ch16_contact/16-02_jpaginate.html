@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>16-02</title>
+<link rel="stylesheet" type="text/css" href="jpaginate/style.css" media="screen"/>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script src="jpaginate/jquery.paginate.js"></script>
+<script type="text/javascript">
+//http://tympanus.net/codrops/2009/11/17/jpaginate-a-fancy-jquery-pagination-plugin/
+$(document).ready(function() {
+	$("#paging").paginate({
+		count : 100,
+		start : 1,
+		display : 10,
+		border : true,
+		border_color : '#333333',
+		text_color : '#000000',
+		background_color : 'aqua',
+		border_hover_color : '#ccc',
+		text_hover_color : '#000',
+		background_hover_color : '#fff',
+		images : false,
+		mouse : 'press',
+		onChange : function(page) {
+			$("#currentPage").html(page);
+		}
+	});
+
+});
+</script>
+</head>
+<body>
+	<div id="container">
+		<h1>jPaginate 테스트</h1>
+		<div>
+			현재 페이지 : <span id="currentPage">1</span>
+		</div>
+		<div id="paging"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title></title>
+<script type="text/javascript">
+function getCounter(base) {
+    var num = base;
+    return function() {
+        return { base: base, count: ++num };
+    }
+}
+    
+var counter1 = getCounter(10);
+var counter2 = getCounter(500);
+console.log(counter1());
+console.log(counter1());
+console.log(counter2());
+console.log(counter2());
+console.log(counter2());
+</script>
+</head>
+<body>
+
+</body>
+</html>

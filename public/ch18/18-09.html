@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>18-09</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {		
+	function longTimeJob(deferred) {
+		var num = 0;
+		(function() {
+			num++;
+			deferred.notify({ p: num });
+			if (num < 100) {
+				setTimeout(arguments.callee, 50);
+			} else {
+				deferred.resolve({ p: num });
+			}
+		})();
+	}
+	
+	$("#long").click(function() {
+		$("#long").attr("disabled", "disabled");
+		var d = $.Deferred(longTimeJob);
+		
+		d.progress(function(args) {
+			$("#status").html(args.p);
+		});
+		
+		d.done(function(args) {
+			$("#long").removeAttr("disabled");
+			alert("작업 완료");
+		});
+	});
+	
+	$("#other").click(function() {
+		var current = new Date();
+		$("#time").html(current.toJSON());
+	});
+});
+</script>
+</head>
+<body>
+	<button id="long">긴시간 작업</button>
+	<button id="other">다른 작업</button>
+	<hr />
+	상태 확인 : <span id="status"></span><br />
+	현재 시간 : <span id="time"></span><br />
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>19-01</title>
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.0.0.js"></script> -->
+<script type="text/javascript">
+$(document).ready(function() {		
+	var d = $.Deferred();
+	
+	d.then(
+		function() {
+	    	throw new Error("지연 객체 예외 발생");
+		}
+	).then(
+		function() {
+	    	console.log("첫번째 done");
+		},
+		function() {
+	    	console.log("첫번째 fail");
+		}
+	).then(
+		function() {
+	    	console.log("두번째 done");
+		},
+		function() {
+	    	console.log("두번째 fail");
+		}
+	);
+	
+	d.resolve();
+});
+</script>
+</head>
+<body>
+	<h2>console을 확인합니다.</h2>
+</body>
+</html>

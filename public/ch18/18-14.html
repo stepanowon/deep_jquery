@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>18-14</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	function job1(deferred) {
+		console.log("job1 start!!");
+		setTimeout(function() {
+			deferred.resolve({ data : "job1" });
+		}, 1000);
+	}
+
+	function job2(deferred) {
+		console.log("job2 start!!");
+		setTimeout(function() {
+			deferred.resolve({ data : "job2" });
+		}, 5000);
+	}
+
+	$("#start").click(function() {
+		var j1 = $.Deferred(job1);
+		var j2 = $.Deferred(job2);
+		
+		j1.done(function() {
+			console.log("job1 complete : " + $.now());
+		});
+		
+		j2.done(function() {
+			console.log("job2 complete : " + $.now());
+		});
+		
+		$.when(j1, j2).done(function(result1, result2) {
+			console.log("결과1 : " + result1.data + ", timestamp: " + $.now());
+			console.log("결과2 : " + result2.data + ", timestamp: " + $.now());
+		});	
+	});
+
+});
+</script>
+</head>
+<body>
+	<button id="start">job1, job2 시작!</button>
+	<h2>콘솔을 확인합니다.</h2>
+</body>
+</html>

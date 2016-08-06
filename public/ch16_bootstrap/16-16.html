@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이미지 뷰어 예제</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/ekko-lightbox.min.css">
+<style>
+	body {  padding-top: 70px; } 
+	.portfolio-item {	 margin-bottom: 25px;  }
+	footer {	  margin: 50px 0; }
+</style>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/ekko-lightbox.min.js"></script>
+<script src="https://www.jsviews.com/download/jsrender.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	var url = "https://apis.daum.net/search/image?callback=?";
+	var param = { 
+		pageno:1, result:20, output:"json", sort : "accu",
+		apikey : "69265a1de3f2d73ea17f3fa647209f4d"
+	};
+	//검색용 함수: JSONP 기법 이용
+	var searchImages= function() {
+		$.getJSON(url, param, function(data) {
+			var tmpl = $.templates("#image_template");
+			var str =  tmpl.render(data.channel.item);
+			$("#imagelist").append(str);
+		});
+	};
+	//다음 20개 가져오기를 클릭했을 때의 이벤트 처리
+	$("#getNext").on("click", function() {
+		param.pageno++;
+		searchImages();
+	});
+	//'검색' 버튼을 클릭했을 때의 이벤트 처리
+	$("#inquery").on("click", function() {
+		$("#imagelist").empty();
+		param.pageno = 1;
+		param.q = $("#keyword").val();
+		searchImages();
+	});
+	//검색어 입력을 위한 텍스트박스에서 엔터키를 눌렀을 때도 검색이 가능하도록 함.
+	$("#keyword").on("keyup", function(e) {
+		if (e.keyCode == 13) {
+			$("#inquery").trigger("click");
+		}
+	});
+	//이벤트 위임 처리를 통해 검색된 썸네일 이미지를 클릭했을 때 라이트박스 처리
+	$("#imagelist").on("click", "div.portfolio-item  a", function(e) {
+		e.preventDefault();
+		$(this).ekkoLightbox();
+	});
+});
+</script>
+<script id="image_template" type="text/x-jsrender">
+        <div class="col-md-2 portfolio-item">
+            <a data-toggle="lightbox" data-gallery="multis" 
+				data-title="{{:title}}" href="{{:image}}">
+                <img class="img-responsive" src="{{:thumbnail}}" alt="{{:title}}">
+            </a>
+        </div>
+</script>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" 
+            	data-toggle="collapse" 
+            	data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">이미지 검색</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="https://developers.daum.net/services/apis/search/image">
+                    DAUM 이미지 검색 페이지</a>
+                </li>
+                <li>
+                    <a href="https://developers.daum.net/">
+                    DAUM Developers Center</a>
+                </li>
+                <li>
+                    <a href="https://en.wikipedia.org/wiki/JSONP">JSONP Wiki</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <div id="navbar" class="navbar-collapse navbar-form navbar-left">
+        	<div class="form-group col-lg-12">
+        		<input id="keyword" type="text" placeholder="검색어" class="form-control">
+        		<button id="inquery" class="btn btn-success form-control">검 색</button>
+        	</div>
+        </div>
+	</div>
+
+    <div id="imagelist" class="row">
+
+    </div>
+
+    <footer>
+        <div class="row">
+	        <div class="navbar-collapse navbar-form navbar-left">
+    	        <div class="form-group col-lg-12">
+        	        <button type="submit" id="getNext" class="btn btn-primary">
+              	      다음 20개 가져오기</button>
+            	</div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+</body>
+</html>

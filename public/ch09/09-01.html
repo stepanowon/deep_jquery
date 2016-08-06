@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>09-01</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	console.time("create bulk element");
+	var str = "";
+	for (var i=0; i < 100; i++) {
+		var a = "a"+i;
+		str += "<div id='"+a+"'>";
+		for (var j=0; j < 100; j++) {
+			var b = "b_" + i + "_" +j;
+			str +="<div id='" + b + "'";
+			if (j%4==0) {
+				str+= " class='main'";
+			}
+			str+=">" + i + "," + j + "</div>";
+		}
+		str+= "</div>"
+	}
+	$("#content").html(str);
+	$("#b_30_50").addClass("test").wrap("<span></span>");
+	console.timeEnd("create bulk element");
+	
+});
+</script>
+</head>
+<body>
+    <div id="content"></div>
+</body>
+</html>

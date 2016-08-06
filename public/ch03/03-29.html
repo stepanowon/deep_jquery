@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title></title>
+<script type="text/javascript">
+function outer() {
+    var outerargs = arguments;
+    inner();
+    function inner() {
+        console.log(outerargs);  
+        console.log(arguments);
+    }
+}
+    
+outer();
+</script>
+</head>
+<body>
+</body>
+</html>

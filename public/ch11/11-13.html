@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>11-13</title>
+<style>
+    div.bg { width:800px; height:300px; background-color:aqua;
+ 	    margin: 5px 5px 5px 5px; }
+    div#outer { border:solid 1px black; background-color: yellow;
+        width:600px; height:400px; padding: 10px 10px 10px 10px;
+	    position:absolute; top: 100px; left:50px; }
+    div#inner { border:solid 1px black; background-color: orange;
+        width:100px; height:100px; position:relative; top:100px; left:50px; }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#inner").on("click", function(e) {
+		console.log("div#inner click!!");
+		console.dir(e);
+		e.stopPropagation();
+	});
+	$("#outer").on("click", function(e) {
+		console.log("div#outer click!!");
+		console.dir(e);
+		e.stopPropagation();
+	});
+	$(document).on("click", function(e) {
+		console.log("document click");
+		console.dir(e);
+		e.stopPropagation();
+	});
+});
+</script>
+</head>
+<body>
+	<div class="bg"></div><div class="bg"></div>
+	<div class="bg"></div><div class="bg"></div>
+	<div id="outer">
+		<div id="inner"></div>
+	</div>
+</body>
+</html>

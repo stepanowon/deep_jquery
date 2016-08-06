@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title></title>
+<script type="text/javascript">
+var msg = "GLOBAL";
+
+function outer() {
+    var msg = "OUTER";
+    console.log(msg);
+    inner();
+    function inner() {
+        var msg = "INNER";
+        console.log(msg);
+    }
+}
+
+outer();
+</script>
+</head>
+<body>
+
+</body>
+</html>

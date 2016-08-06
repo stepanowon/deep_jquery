@@ -1,0 +1,7 @@
+div.accordion { width:350px; font-size:9pt; }
+div.header { border:solid 1px black;
+    text-align: center; padding:2px 2px 2px 2px; 
+    margin-bottom: 2px; background-color: purple;
+    color:yellow; font-weight: bold; cursor:pointer; }
+div.content { border:solid 1px #DDDDDD; margin:0px 0px 0px 0px;
+    padding:5px 5px 5px 5px; display:none;  }

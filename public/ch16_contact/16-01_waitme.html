@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>15-waitme.html</title>
+<link rel="stylesheet" href="waitme/waitMe.css" />
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script src="waitme/waitMe.js"></script>
+<script type="text/javascript">
+//http://www.jqueryscript.net/loading/jQuery-Plugin-For-Creating-Loading-Overlay-with-CSS3-Animations-waitMe.html
+var ajaxLoading = function(isLoading){
+	if (isLoading == false) {
+		$("body").waitMe("hide");
+	} else {
+		$("body").waitMe({
+			effect: "ios",
+			text: "처리중입니다.",
+			bg: 'rgba(255,255,255,0.7)',
+			color: '#000',
+			source: 'waitme/img.svg',
+		});			
+	}
+};
+
+$(document).ready(function() {
+	$("#test").click(function() {
+		ajaxLoading(true);
+	});
+});
+</script>
+</head>
+<body>
+	<div id="container" style="height:400px;">
+		<button id="test">테스트</button>
+	</div>
+</body>
+</html>

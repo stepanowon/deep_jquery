@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>16-final</title>
+<link rel="stylesheet" type="text/css" href="jpaginate/style.css" />
+<link rel="stylesheet" type="text/css" href="waitme/waitMe.css" />
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/humanity/jquery-ui.css" />
+<style>
+	body { font-size: 75%; }
+    input.text { margin-bottom:12px; width:95%; padding: .4em; }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script src="https://www.jsviews.com/download/jsrender.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<script src="waitme/waitMe.js"></script>
+<script src="jpaginate/jquery.paginate.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	// 1. 공통 변수, 옵션
+	
+	// 2. 공통 함수
+	
+	// 3. 이벤트 함수
+	
+	// 4. 화면 초기화 코드
+	
+
+});
+</script>
+</head>
+<body>
+	<h2 class="ui-widget ui-header">연락처 리스트</h2>
+	<button role="button" id="btnNewContact" 
+		class="add ui-button ui-button ui-state-default ui-button-text-only">
+		<span class="ui-button-text">새로운 연락처 추가</span>
+	</button>		
+	<div id="output"  style="text-align:center;width:630px;">
+		<table id="contact_table" style="border:solid 1px black;">
+			<thead>
+				<tr style="background-color: #cb842e; color:white;">
+					<th style="width:60px;">번호</th>
+					<th style="width:90px;">이름</th>
+					<th style="width:100px;">전화번호</th>
+					<th style="width:250px;">주소</th>
+					<th style="width:130px;">기능</th>
+				</tr>
+			</thead>
+			<tbody id="contactlist">
+			
+			</tbody>
+		</table>
+		<div id="paging" ></div>
+	</div>
+
+</body>
+</html>

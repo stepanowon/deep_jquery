@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>07-13</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $("span:first").css("font-style", "italic");
+    $("span:first-child").css("font-size", "20pt");
+    $("span:first-of-type" ).css("background-color", "yellow");
+});
+</script>
+</head>
+<body>
+    <div>
+      <span>짜장면</span>,
+      <span>짬뽕</span>,
+      <span>깐풍기</span>,
+      <span>울면</span>
+    </div>
+    <div>
+      <b>김치찌개</b>,
+      <span>된장찌개</span>,
+      <span>고등어구이</span>,
+      <span>미역국</span>
+    </div>
+    <div>
+      <span>우동</span>,
+      <span>초밥</span>,
+      <span>튀김</span>,
+      <span>라면</span>
+    </div>
+</body>
+</html>

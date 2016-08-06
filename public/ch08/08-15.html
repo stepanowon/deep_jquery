@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>08-15</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#content > div").each(function(i, item) {
+		console.log(i + "--->" + item.innerHTML);
+	});
+	
+	var arr = [
+		{ name: "안재홍", score : 192400 },
+		{ name: "조진웅", score : 200120 },
+		{ name: "박보검", score : 120340 },
+		{ name: "이제훈", score : 151260 }
+	];
+	console.log("--------------------");
+	$.each(arr, function(i, item) {
+		console.log(item.name + " : " + item.score);
+	});
+	
+	arr.forEach(function(item, i) {
+		console.log(item.name + " : " + item.score);
+	});
+	
+});
+</script>
+</head>
+<body>
+    <div id="content">
+        <div id="a">김수한무</div>
+        <div>거북이와 두루미</div>
+        <div class="test">삼천갑자 동방삭</div>
+    </div>
+</body>
+</html>

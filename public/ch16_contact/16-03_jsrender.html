@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>16-03_jsrender</title>
+<style>
+table  { width: 400px; border:1px solid black; border-collapse:collapse; }
+td, th { border:1px solid black;  text-align:center; }
+table > thead > tr { color:yellow; background-color: purple; }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script src="https://www.jsviews.com/download/jsrender.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {		
+	$.get("/contact/list.jsp", function(data) {
+		var tmpl = $.templates("#contact_template");
+		var str =  tmpl.render(data.contacts);
+		$("#container").html(str);
+	});
+});
+</script>
+ <script id="contact_template" type="text/x-jsrender">
+	<tr>
+		<td>{{:no}}</td>
+		<td>{{:name}}</td>
+		<td>{{:tel}}</td>
+		<td>{{:address}}</td>
+	</tr>
+</script>
+</head>
+<body>
+	<table id="list">
+		<thead>
+			<tr><th>번호</th><th>이름</th><th>전화번호</th><th>주소</th></tr>
+		</thead>
+		<tbody id="container">
+		
+		</tbody>
+	</table>
+</body>
+</html>

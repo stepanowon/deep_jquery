@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>11-23</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("input.number").keydown(function(e) {
+        var chrs = [48,49,50,51,52,53,54,55,56,57];		//키보드 위쪽 0~9
+        chrs = chrs.concat([96,97,98,99,100,101,102,103,104,105])		//숫자 키패드
+        chrs = chrs.concat([37,38,39,40])		//방향키(커서키)
+        chrs = chrs.concat([13,8,9])		//엔터, 백스페이스, 탭 키
+        chrs = chrs.concat([45,46,36,35])		//ins,del,home,end
+        chrs = chrs.concat([16,17,18,190])		//shift, ctrl, alt, 소수점(.)
+        
+        var k = e.keyCode;
+        var isValid = false;
+        for(var i=0; i < chrs.length; i++) {
+            if (k == chrs[i]) {
+                isValid = true;
+                break;
+            } 
+        }
+		
+        if (isValid == false) {
+            e.preventDefault();
+        }
+	});	
+});
+</script>
+</head>
+<body>
+	<input type="text" class="number" /> <br />
+	<input type="text" class="number" /> <br />
+	<input type="text" class="number" /> <br />
+</body>
+</html>

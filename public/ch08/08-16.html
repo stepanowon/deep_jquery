@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>03-27 리뷰</title>
+<script type="text/javascript">
+window.onload = function() {
+    var list =  document.getElementsByTagName("input");
+    for (var i=0; i < list.length; i++) {
+        list[i].onclick = function() {
+            alert((i+1) + "번째 버튼 클릭!");   
+        }
+    }
+}
+</script>
+</head>
+<body>
+    <input id="b1" class="test" type="button" value="1번째 버튼" />
+    <input id="b2" class="test" type="button" value="2번째 버튼" />
+    <input id="b3" class="test" type="button" value="3번째 버튼" />
+</body>
+</html>

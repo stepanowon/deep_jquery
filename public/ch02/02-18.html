@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert your title</title>
+<script type="text/javascript">
+var obj = {};
+obj.name = "이하니";
+obj.age = 22;
+obj.gender = "여";
+obj.address = "서울특별시 강동구 암사동";
+obj.hobby = [ "농구", "독서" ];
+obj.family = [];
+obj.family[0] = { name:"이몽룡", rel:"아버지" };
+obj.family[1] = { name:"성춘향", rel:"어머니" };
+obj.family[2] = { name:"이호동", rel:"오빠" };
+
+console.dir(obj);
+var strJSON = JSON.stringify(obj);
+console.log(strJSON);
+strJSON = strJSON.replace("이하니", "이제니");
+var obj2 = JSON.parse(strJSON);
+console.dir(obj2);
+</script>
+</head>
+<body>
+    
+</body>
+</html>

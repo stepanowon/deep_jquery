@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>10-26</title>
+<style>
+#addForm { width:650px; }
+th  { background-color:purple; color:yellow; }
+.pkey { width:250px; }
+.pname  { width:150px; }
+.ptel  { width:150px; }
+.pdel  { width:100px; }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+function generateUUID() {
+    var d = new Date().getTime();
+    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = (d + Math.random()*16)%16 | 0;
+        d = Math.floor(d/16);
+        return (c=='x' ? r : (r&0x3|0x8)).toString(16);
+    });
+    return uuid;
+};
+
+$(document).ready(function() {
+	$("#temprow  input.pdel").click(function() {
+		$(this).parents("tr").remove();
+	});
+	
+	$("#add").click(function() {
+		var uuid= generateUUID();
+		$("#temprow").clone(true).removeAttr("id")
+			.find("input:first").val(uuid).end().appendTo("#rowbody");
+	});
+	
+	$("#saveall").click(function() {
+		var save_data = [];
+		$("#addform  tr:gt(0)").each(function(i, item) {
+			var key = $(item).find("input.pkey").val();
+			var name = $(item).find("input.pname").val();
+			var tel = $(item).find("input.ptel").val();
+			save_data.push({key:key, name:name, tel:tel});
+		});
+		//저장할 데이터 구조의 확인을 위해 콘솔로 출력
+		console.log("저장할 데이터 : ");
+		console.log(JSON.stringify(save_data));
+	});
+});
+</script>
+</head>
+<body>
+	<h2>추가할 데이터</h2>
+	<button id="add" class="pno"> 행 추가 </button>
+	<div id="layout1">
+		<table id="addform">
+			<thead>
+				<tr>
+					<th class="pkey">식별번호</th>
+					<th class="pname">이름</th>
+					<th class="ptel">전화번호</th>
+					<th class="pdel">삭제버튼</th>
+				</tr>
+			</thead>
+			<tbody id="rowbody">
+	
+			</tbody>
+		</table>
+		<br />
+		<button id="saveall">모두 저장</button>
+	</div>
+	
+	<table id="temptable" style="display:none">
+		<tr id="temprow">
+			<td><input type="text" class="pkey" name="key" disabled /></td>
+			<td><input type="text" class="pname" name="name" /></td>
+			<td><input type="text" class="ptel" name="tel" /></td>
+			<td><input type="button" class="pdel" value="삭제" /></td>
+		</tr>
+	</table>
+</body>
+</html>

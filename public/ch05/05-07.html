@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title></title>
+<script type="text/javascript">
+var data1 = [ 10,20,30,40,50,60,70,80 ];
+var result1 = data1.filter(function(val,index) {
+    if (index%2 == 0) {
+        return true;
+    }
+});
+console.log(result1);
+    
+var data2 = {
+    class : "3-3",
+    subject : "korean",
+    scores : [
+        { name : "설현", score : 90 },
+        { name : "혜리", score : 80 },
+        { name : "채빈", score : 100 },
+        { name : "설리", score : 90 },
+        { name : "루나", score : 70 },
+        { name : "나나", score : 50 },
+        { name : "하니", score : 60 }
+    ]
+}; 
+
+var result2 = data2.scores.filter(function(val, index) {
+    if (val.score >= 80) {
+        return true;
+    }
+});
+console.log("-- 80점 이상의 학생들--");
+for (var i=0; i < result2.length; i++) {
+    console.log(result2[i].name + " : " + result2[i].score);   
+}
+    
+var condition= { min : 70, max : 90 };
+var result3 = data2.scores.filter(function(val, index) {
+    if (val.score >= this.min && val.score <= this.max ) {
+        return true;
+    }
+}, condition);
+console.log("-- 70~90점 학생들--");
+for (var i=0; i < result3.length; i++) {
+    console.log(result3[i].name + " : " + result3[i].score);   
+}
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>

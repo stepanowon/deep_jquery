@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title></title>
+<script type="text/javascript">
+//--mode : 변환 형식 지정. "date", "time", "datetime"
+//--isMilli : 밀리초까지 보여줄지 여부를 지정
+Date.prototype.toKrString = function(mode, isMilli) {
+    var strout, year, month, day, hour, minute, second, milli;
+    
+    if (typeof(mode) == "undefined" || 
+        mode != "date" && mode != "time" && mode != "datetime") {
+        mode = "date";      //date를 기본값으로...
+    }
+    strout = "";
+    year = this.getFullYear();
+    month = this.getMonth()+1;
+    if (month < 10) { month = "0" + month; }
+    day = this.getDate();
+    if (day < 10) { day = "0" + day; }
+    hour = this.getHours();
+    if (hour < 10) { hour = "0" + hour; }
+    minute = this.getMinutes();
+    if (minute < 10) { minute = "0" + minute; }
+    second = this.getSeconds();
+    if (second < 10) { second = "0" + second; }
+    milli = this.getMilliseconds();
+    if (milli < 10) { 
+        milli = "00" + milli;
+    } else if(milli < 100) {
+        milli = "0" + milli;   
+    }
+    
+    if (mode == "date" || mode == "datetime") {
+        strout += year + "-" + month + "-" + day;
+    }
+    if (mode == "datetime") { strout += " "; }
+    if (mode == "time" || mode == "datetime") {
+        strout += hour + ":" + minute + ":" + second;
+        if (isMilli) {  
+            strout += " " + milli;   
+        }
+    }
+    return strout;
+}
+    
+var a = new Date(2050,11,25, 10,30,11, 2);
+console.log("a.toKrString() : " + a.toKrString());
+console.log("a.toKrString('date') : " + a.toKrString("date"));
+console.log("a.toKrString('datetime') : " + a.toKrString("datetime"));
+console.log("a.toKrString('datetime', true) : " + a.toKrString("datetime", true));
+console.log("a.toKrString('time') : " + a.toKrString("time"));
+console.log("a.toKrString('time', true) : " + a.toKrString("time", true));
+</script>
+</head>
+<body>
+
+</body>
+</html>

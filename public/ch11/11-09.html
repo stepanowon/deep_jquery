@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>11-09</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#test1").on("click.first", function(e) {
+		console.log("click.first!!!");
+	});
+	$("#test1").on("click.second", function(e) {
+		console.log("click.second!!!");
+		console.dir(e.namespace);
+	});
+	
+	$("#unbinding").on("click", function(e) {
+		$("#test1").off("click.first");
+	});
+	
+	$("#trigger").on("click", function() {
+		$("#test1").trigger("click.second");
+	});
+});
+</script>
+</head>
+<body>
+	<button id="test1">테스트 버튼</button> <br />
+	<button id="unbinding">테스트 버튼에 연결된  click.first 이벤트 해제하기</button>
+	<button id="trigger">테스트 버튼의 click.second 이벤트 강제 호출</button>
+</body>
+</html>

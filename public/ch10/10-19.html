@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>10-19</title>
+<style>
+.test { font-size:20pt; width:200px; height:50px; background-color:gray;
+	margin:5px 5px 5px 5px; }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	var temp = "<div class='test'>Hello</div><div class='test'>World</div>";
+	var divs = $(temp);
+	console.log("선택된 요소 수 : " + divs.length);
+	for (var i=0; i < divs.length; i++) {
+		console.log(divs[i]);
+	}
+	$("#content").html(divs);
+});
+</script>
+</head>
+<body>
+	<div id="content"></div>
+</body>
+</html>

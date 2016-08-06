@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title></title>
+<script type="text/javascript">
+function Person(name, age) {
+    this.name = name.toString();
+    this.age = parseInt(age);
+    
+    this.getInfo = function() {
+        return this.name + "님의 나이 : "+this.age;
+    }
+}
+    
+var p1 = new Person("홍길동", 20);
+console.log(p1);
+</script>
+</head>
+<body>
+</body>
+</html>

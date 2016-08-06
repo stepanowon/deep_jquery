@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>07-07</title>
+<style>
+    div.accordion { width:250px; font-size:9pt; }
+    div.header { border:solid 1px black;
+        text-align: center; padding:2px 2px 2px 2px; 
+        margin-bottom: 2px; background-color: purple;
+        color:yellow; font-weight: bold; cursor:pointer; }
+    div.content { border:solid 1px #DDDDDD;
+        padding:5px 5px 5px 5px; height:100px; }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $("div.header + div.content").hide();
+});
+</script>
+</head>
+<body>
+    <h2>어코디언 UI</h2>
+	<div id="acc" class="accordion">
+		<div class="header">제목1</div>
+		<div class="content">내용1</div>
+		<div class="header">제목2</div>
+		<div class="content">내용2</div>
+		<div class="header">제목3</div>
+		<div class="content">내용3</div>
+		<div class="header">제목4</div>
+		<div class="content">내용4</div>
+    </div>
+    <hr />
+    <div class="content">
+        어코디언 UI는 생각보다 만들기 어렵지 않다. jQuery를 이용하면 간단하게 개발이 가능하다.<br />
+        jQuery UI 플러그인에도 어코디언 기능이 포함되어 있지만, 간단하게는 만들어볼 수도 있다.
+    </div>
+</body>
+</html>

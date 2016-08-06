@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title></title>
+<script type="text/javascript">
+var a = [ 10, 20, 30, 40, 50 ];
+a.splice(2,1);  //2번 인덱스 위치에서 1개의 요소를 삭제
+//현재 상태 : [10,20,40,50]
+a.splice(3,0,"hello");  //3번 인덱스 위치에서 삭제는 수행하지 않고 "hello" 삽입
+//현재 상태 : [10,20,40,"hello",50]
+console.log(a);
+</script>
+</head>
+<body>
+
+</body>
+</html>
+

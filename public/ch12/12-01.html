@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>12-01</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {		
+		$("#show").click(function() {
+			$("#a").show(1000);
+		});
+		$("#hide").click(function() {
+			$("#a").hide(1000);
+		});
+		$("#toggle").click(function() {
+			$("#a").toggle(1000);
+		});
+	});
+</script>
+</head>
+<body>
+	<button id="show">show</button>
+	<button id="hide">hide</button>
+	<button id="toggle">toggle</button>
+	<br />
+	<img id="a" src="images/free3.jpg" style="display:none" />
+</body>
+</html>

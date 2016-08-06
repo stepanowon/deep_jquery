@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>06-05</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    var str = "hello";
+    $("#btn1").click(function() {
+        $("#a").html(str);
+    });
+});
+
+$(document).ready(function() {
+    var str = "world";
+    $("#btn2").click(function() {
+        $("#a").html(str);
+    });
+});
+</script>
+</head>
+<body>
+    <button id="btn1">클릭1</button>
+    <button id="btn2">클릭2</button>
+    <div id="a"></div>
+</body>
+</html>
+

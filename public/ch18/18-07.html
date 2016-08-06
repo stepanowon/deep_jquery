@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>18-07</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	function beforeStart(deferred) {
+		console.log("Before Start");
+		setTimeout(function() {
+			var num = Math.floor(Math.random() * 1000);
+			var sum = 0;
+			for (var i=0; i < num; i++) {
+				sum += i;
+			}
+			deferred.resolve({
+				num:num, 
+				result:sum 
+			});
+		}, 3000);
+	}
+	
+	var d =$.Deferred(beforeStart);
+	
+	d.done(function(args) {
+		console.log(args);
+	});	
+});
+</script>
+</head>
+<body>
+	<h2>콘솔을 확인합니다.</h2>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>11-19(11-18 활용)</title>
+<style>
+    div#outer { border:solid 1px black; background-color: yellow;
+        width:200px; height:200px; padding: 10px 10px 10px 10px;
+	    position:fixed; top: 100px; left:50px; }
+    div#inner { border:solid 1px black; background-color: orange;
+        width:100px; height:100px; position:relative; top:50px; left:50px; }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#outer").on("mouseenter", function(e) {
+		console.log("outer-mouse enter!!");
+	});
+	
+	$("#inner").on("mouseenter", function(e) {
+		console.log("inner-mouse enter!!");
+	});
+});
+</script>
+</head>
+<body>
+	<div id="outer">
+		<div id="inner"></div>
+	</div>
+</body>
+</html>

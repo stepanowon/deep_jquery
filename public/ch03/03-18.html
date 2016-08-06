@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title></title>
+<script type="text/javascript">
+    
+function outer(x) {
+    function inner(y) {
+        return x+y;   
+    }
+    return inner;
+}
+var a = outer(4);
+var result = a(5);
+console.log(result);
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

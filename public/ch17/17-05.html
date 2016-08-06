@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>17-05</title>
+<style>
+    div.accordion { width:350px; font-size:9pt; }
+    div.header { border:solid 1px black;
+        text-align: center; padding:2px 2px 2px 2px; 
+        margin-bottom: 2px; background-color: purple;
+        color:yellow; font-weight: bold; cursor:pointer; }
+    div.content { border:solid 1px #DDDDDD; margin:0px 0px 0px 0px;
+        padding:5px 5px 5px 5px; display:none;  }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#acc1").find("div.header").click(function() {
+    	if ($(this).next().is(":visible") == false) {
+    		$(this).parent().find("div.content:visible").slideUp(300);
+    		$(this).next().slideDown(300);
+    	}
+    });
+	
+	$("#acc2").find("div.header").click(function() {
+		$(this).next().slideToggle(300);
+	});
+});
+</script>
+</head>
+<body>
+    <h2>어코디언 UI</h2>
+	<div id="acc1" class="accordion">
+		<div class="header">제목1</div>
+		<div class="content">내용1<br/><br/><br/><br/></div>
+		<div class="header">제목2</div>
+		<div class="content">내용2<br/><br/><br/><br/></div>
+		<div class="header">제목3</div>
+		<div class="content">내용3<br/><br/><br/><br/></div>
+		<div class="header">제목4</div>
+		<div class="content">내용4<br/><br/><br/><br/></div>
+    </div>
+    <hr />
+ 	<div id="acc2" class="accordion">
+		<div class="header">title 1</div>
+		<div class="content">content 1<br/><br/><br/><br/></div>
+		<div class="header">title 2</div>
+		<div class="content">content 2<br/><br/><br/><br/></div>
+		<div class="header">title 3</div>
+		<div class="content">content 3<br/><br/><br/><br/></div>
+		<div class="header">title 4</div>
+		<div class="content">content 4<br/><br/><br/><br/></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>17-08</title>
+<link rel="stylesheet" 
+	href="https://code.jquery.com/ui/1.12.0/themes/humanity/jquery-ui.css" />
+<style>
+body { font-size: 70%; }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#open").button({
+		icons : { primary : "ui-icon-newwin" }
+	});
+
+	$("#close").button({
+		icons : { secondary : "ui-icon-closethick" }
+	});
+});
+</script>
+</head>
+<body>
+	<div id="container">
+		<button id="open">열기</button>
+		<button id="close">닫기</button>
+	</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>11-04, 고전 이벤트, 표준이벤트</title>
+</head>
+<body>
+	<input id="a" type="button" value="고전 이벤트 처리" /> <br />
+	<input id="b" type="button" value="표준 이벤트 처리" /> <br />
+	<script type="text/javascript">
+	var a = document.getElementById("a");
+	var b = document.getElementById("b");
+	
+	a.onclick = function(e) {
+		document.write("고전!!");
+	};
+	
+	if (b.addEventListener) {
+		b.addEventListener("click", function(e) {
+			document.write("표준 addEventListener!!");
+		});
+	} else {
+		b.attachEvent("onclick", function(e) {
+			document.write("표준 attachEvent!!");
+		});
+	}
+
+	</script>
+</body>
+</html>

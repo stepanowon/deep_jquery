@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>15-01</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$.get("/contact/list.jsp", function(data) {
+		console.log(data);
+	});
+	
+	var param = {};
+	param.name = "지숙";
+	param.tel = "010-5656-4545";
+	param.address = "충남";
+	$.post("/contact/add.jsp", param, function(data) {
+		console.log(data);
+	});
+	
+	//1.12/2.2 버전 부터 지원하는 사용 형태 
+	$.get({
+		url : "/contact/list_long.jsp",
+		data : { pageno:2, pagesize:5 },
+		timeout : 1900,
+		success : function(data) {
+			console.log(data);
+		},
+		error : function(xhr, status, error) {
+			console.log(status + ", " + error);
+		}
+	});
+});
+</script>
+</head>
+<body>
+	<h2>console을 확인합니다.</h2>
+</body>
+</html>

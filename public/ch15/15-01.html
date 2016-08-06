@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>15-01</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	var url = "http://127.0.0.1:8080/contact/list.jsp";
+	$.get(url, function(data) {
+		console.log(data);
+	});
+});
+</script>
+</head>
+<body>
+	<h2>console을 확인합니다.</h2>
+</body>
+</html>

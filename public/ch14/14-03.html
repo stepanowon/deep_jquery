@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>14-03</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	var send_data = {
+		contacts : [
+			{ no:13, name:"오바마", tel : "010-9090-8989", address : "미국" },
+			{ no:14, name:"힐러리", tel : "010-9090-8988", address : "미국" },
+			{ no:15, name:"샌더스", tel : "010-9090-8987", address : "미국" }
+		]
+	};
+	
+	$.ajax({
+		url : "/contact/update_batch.jsp",
+		type : "POST",
+		contentType : "application/json",
+		data : JSON.stringify(send_data),
+		success : function(data) {
+			console.log(data);
+		}
+	});
+
+});
+</script>
+</head>
+<body>
+	<h2>console을 확인합니다.</h2>
+</body>
+</html>

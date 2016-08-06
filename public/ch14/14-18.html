@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>14-18</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	var currentRequests = {};
+	
+	$.ajaxPrefilter(function( options, originalOptions, jqXHR ) {
+		if ( options.abortOnRetry ) {
+			if ( currentRequests[ options.url ] ) {
+				jqXHR.abort();	
+			} else {
+				currentRequests[ options.url ] = jqXHR;	
+			}
+		}
+	});
+
+	$(document).ajaxComplete(function(e,jqxhr,options) {
+		if (options.abortOnRetry) {
+			delete currentRequests[options.url];	
+		}
+	});
+	
+	$.get({
+		url : "/contact/list_long.jsp",
+		abortOnRetry : true,
+		success : function(data) {
+			console.log("## First Request!!");
+			console.log(data);
+		}, 
+		error : function(xhr, status, error) {
+			console.log("## First Request Error!!");
+		}
+	});
+	
+	$.get({
+		url : "/contact/list_long.jsp",
+		abortOnRetry : true,
+		success : function(data) {
+			console.log("## Second Request!!");
+			console.log(data);
+		}, 
+		error : function(xhr, status, error) {
+			console.log("## Second Request Error!!");
+		}
+	});
+
+});
+</script>
+</head>
+<body>
+	<h2>console을 확인합니다.</h2>
+</body>
+</html>

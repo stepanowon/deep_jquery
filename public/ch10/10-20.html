@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>10-20</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	//--bulk data 생성
+	console.time("create bulk data");
+	var data = [];
+	for (var i=1; i <= 10000; i++) {
+		data.push({ 
+			no:i , 
+			name:"홍길동"+i, 
+			score:50+i%50, 
+			tel : "010-2121-313"+(i%10) 
+		});
+	}
+	console.timeEnd("create bulk data");
+	
+	//--bulk data를 div#content에 출력
+	console.time("create Element by $ function");
+	var temp1 = "<div><span></span>" +
+		"<button class='detail'>상세보기</button></div>";
+	for (var i=0; i < data.length; i++) {
+		var item = data[i];
+		$(temp1).attr("id", "d_"+item.no)
+			.find("span").html(item.name + " : " + item.score + ", " + item.tel)
+			.next().attr("data-no", item.no).parent().appendTo("#content");
+	}
+	console.timeEnd("create Element by $ function");
+});
+</script>
+</head>
+<body>
+	<div id="content"></div>
+</body>
+</html>

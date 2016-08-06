@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+    #view1 { width:600px; height:400px; }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    var duration = 300;
+    
+    $("#setup").on("click", function() {
+        duration = parseInt($("#speed").val());
+        console.log(duration);
+    });
+    
+    $("#goeffect").on("click", function() {
+        console.log(duration);
+        $("#view1").slideToggle(duration);
+    });
+});
+</script>
+</head>
+<body>
+    effect speed : <input type="text" id="speed" value="300" />
+    <button id="setup">setup speed</button>
+    <br />
+    <button id="goeffect">go effect!!</button>
+    <div>
+        <img id="view1" src="images/view1.jpg" />
+    </div>
+</body>
+</html>

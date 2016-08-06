@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>10-23</title>
+<style>
+	div#a, div#b { width:300px; border:solid 1px gray; margin:5px 5px 5px 5px; }
+	div#container { padding:10px 10px 10px 10px; width:400px;
+		border: double 3px gray; }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	var detached;
+	$("#delete").click(function() {
+		$("#container").empty();
+		$("#b").remove();
+	});
+	$("#detach").click(function() {
+		detached = $("#a").detach();
+	});
+	$("#append").click(function() {
+		$("#container").append(detached);
+	});
+	//이벤트 연결 정보 유실 여부를 확인하기 위한 코드
+	$("#a > p").click(function() {
+		alert("detach해두었다가 추가한 요소는 이벤트 연결 정보가 유실되지 않음.");
+	});
+});
+</script>
+</head>
+<body>
+	<button id="detach">#a를 detach() 하기</button>
+	<button id="append">detach한 #a를 #container에 추가하기</button>
+	<button id="delete">remove(), empty()</button>
+    <div id="a">
+    	<p>오래 살아야 돼~</p>
+    	<div>김수한무</div>
+    	<div>거북이와 두루미</div>
+    </div>
+    <div id="b">
+    	<div>삼천갑자 동방삭</div>
+    	<div>치치카프 사리사리센타</div>
+    	<h2>워리워리 세브리깡</h2>
+    	<div>무두셀라 구름이</div>
+    </div>
+    <div id="container">
+    	<h3>허리케인에 담벼락</h3>
+    	<p>담벼락에 서생원</p>
+    </div>
+</body>
+</html>

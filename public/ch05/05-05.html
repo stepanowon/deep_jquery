@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title></title>
+<script type="text/javascript">
+var data1 = [3,1,4,5,2,7,6];
+data1.sort();
+console.log(data1);     //
+
+var data2 = [ 70,20,40,50,60,100 ];
+data2.sort(function(a,b) {
+    return b-a;
+});
+console.log(data2);
+    
+var data3 = {
+    class : "3-3",
+    subject : "korean",
+    scores : [
+        { name : "설현", score : 90 },
+        { name : "혜리", score : 80 },
+        { name : "채빈", score : 100 },
+        { name : "설리", score : 90 },
+        { name : "루나", score : 70 },
+        { name : "나나", score : 50 },
+        { name : "하니", score : 60 }
+    ]
+};  
+data3.scores.sort(function (a, b) { 
+	if (a.score > b.score) {
+        return 1;
+    } else if (a.score < b.score) {
+        return -1;
+    } else {
+        return 0;
+    }
+});
+    
+for (var i=0; i < data3.scores.length; i++) {
+    var item = data3.scores[i];
+    console.log(item.name + " : " + item.score);
+}
+</script>
+</head>
+<body>
+    
+</body>
+</html>

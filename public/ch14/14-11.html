@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>14-11</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$.get("/contact/list_long.jsp", {pageno:1}, function(page1_data) {
+		console.log("page 1!! : "+ (new Date()).toLocaleTimeString());
+		console.log(page1_data);
+		$.get("/contact/list_long.jsp", {pageno:2}, function(page2_data) {
+			console.log("page 2!! : "+ (new Date()).toLocaleTimeString());
+			console.log(page2_data);
+			$.get("/contact/list_long.jsp", {pageno:2}, function(page3_data) {
+				console.log("page 3!! : "+ (new Date()).toLocaleTimeString());
+				console.log(page3_data);
+			});
+		});
+	});
+});
+</script>
+</head>
+<body>
+	<h2>console을 확인합니다.</h2>
+</body>
+</html>

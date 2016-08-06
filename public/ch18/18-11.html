@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>18-11</title>
+<link rel="stylesheet" 
+	href="https://code.jquery.com/ui/1.12.0/themes/humanity/jquery-ui.css" />
+<style>
+body { font-size: 70%; }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#progressbar").progressbar({ 
+		value : 0, 
+		max : 100
+	});
+	
+	$("#dialog1").dialog({
+		autoOpen: false,
+		modal : true,
+		buttons : {
+			" 닫 기 " : function() {
+				$(this).dialog("close");
+				$("#progressbar").progressbar({ value:0 });
+			}
+		}
+	});
+	
+	$("button").button();
+
+});
+</script>
+</head>
+<body>
+	<button id="long">긴시간 작업</button>
+	<hr />
+	<div style="width:400px">
+		<div id="progressbar"></div>
+	</div>
+	<div id="dialog1" title="작업 완료">
+  		<p>
+  			<span class="ui-icon ui-icon-circle-check" 
+  			      style="float:left; margin:0 7px 20px 0;"></span>
+  			처리 작업이 완료되었습니다!
+  		</p>
+	</div>
+</body>
+</html>

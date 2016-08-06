@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>11-08</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	function calcHandler(e) {
+		var x = parseInt($("#x").val());
+		var y = parseInt($("#y").val());
+		var result = 0;
+		
+		if (e.data == "+") {
+			result = x+y;	
+		} else if (e.data == "*") {
+			result = x*y;
+		} else {
+			throw new Error("처리 불가능한 형식!!");
+		}
+		$("#result").html(result);
+	} 
+	
+	$("#add").click("+", calcHandler);
+	$("#multiply").click("*", calcHandler);
+	
+	//$("#add").on("click", undefined, "+", calcHandler);
+	//$("#multiply").on("click",undefined, "*", calcHandler);
+	
+});
+</script>
+</head>
+<body>
+	X : <input type="text" id="x" value="5" /><br />
+	Y : <input type="text" id="y" value="3" /><br />
+	<button id="add">덧셈</button>
+	<button id="multiply">곱셈</button><br /><br />
+	처리 결과 : <span id="result">0</span>
+</body>
+</html>

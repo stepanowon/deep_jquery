@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>11-15</title>
+<style>
+    #nations > thead > tr { background-color:purple; color:yellow; }
+    #nations > thead > tr > th { padding :0px 1px 0px 0px; width:150px; }
+    #nations > tbody > tr > td { border-bottom: solid 1px gray; }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	
+});
+</script>
+</head>
+<body>
+	지역 선택 : 
+	<select id="region">
+		<option value="all" selected>전체 정보 보기</option>
+		<option value="asia">아시아</option>
+		<option value="america">미주</option>
+		<option value="europe">유럽</option>
+		<option value="oceania">대양주</option>
+		<option value="africa">아프리카</option>
+	</select>
+	<button id="inquery">조회</button>	
+    <table id="nations">
+        <thead>
+            <tr><th>국가명</th><th>수도</th><th>상세보기</th></tr>
+        </thead>
+        <tbody id="list">
+
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>11-26</title>
+<style>
+.focused { border: solid 3px gray; background-color: aqua; }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#container > .test").on("focus  blur", function(e) {
+		$(this).toggleClass("focused");
+	});
+});
+</script>
+</head>
+<body>
+	<div id="container">
+		이름 : <input id="name" type="text" class="test" /><br />
+		전화 : <input id="tel" type="text" class="test" /><br />
+		주소 : <input id="address" type="text" class="test" /><br />
+		성별 : <select id="gender" name="gender" class="test">
+			<option value="M">남자</option>
+			<option value="F">여자</option>
+		</select><br /><br />
+		<button id="save" class="test">저장</button>
+		<button id="cancel" class="test">취소</button>
+ 	</div>
+</body>
+</html>

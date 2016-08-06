@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title></title>
+<script type="text/javascript">
+var data = {
+    class : "3-3",
+    subject : "korean",
+    scores : [
+        { name : "설현", total : 25, correct : 20 },
+        { name : "혜리", total : 25, correct : 22 },
+        { name : "채빈", total : 25, correct : 25 },
+        { name : "설리", total : 25, correct : 21 },
+        { name : "루나", total : 25, correct : 17 },
+        { name : "나나", total : 25, correct : 19 },
+        { name : "하니", total : 25, correct : 23 }
+    ]
+}; 
+
+var obj = { sum : 0, count : 0 };
+var arr = data.scores.map(function(item, index) {
+    var score = item.correct / item.total * 100;
+    console.log(item.name + " : " + score);
+    this.sum += score;
+    this.count++;
+    return { "name" : item.name, "score" : score };
+}, obj);
+var totalAvg = obj.sum / obj.count;
+console.log("----------------");
+console.log("전체 평균 : " + totalAvg);
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>

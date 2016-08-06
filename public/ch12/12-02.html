@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>12-02</title>
+<style>
+	img#a { width:640; height:480; display:none; }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {		
+	$("#show").click(function() {
+		$("#a").show({
+			duration: 3000, 
+			easing:"linear",
+			start : function(promise) {
+				console.log("*** start");
+			},
+			progress : function(promise, prog, remain) {
+				var percent = Math.round(prog * 100) + "%";
+				console.log("*** progress");
+				$("#progress").html("진행율 : " + percent + 
+						", 남은 시간 : " + remain + "ms");
+			},
+			done : function(promise) {
+				console.log("*** done : ");
+				console.dir(promise);
+			},
+			complete : function() {
+				console.log("*** complete" );
+			},
+			fail : function() {
+				console.log("*** fail : ");
+			},
+			always : function() {
+				console.log("*** always : ");
+			}
+		});
+	});
+});
+</script>
+</head>
+<body>
+	<button id="show">show</button><br />
+	<span id="progress"></span>
+	<br />
+	<img id="a" src="images/free2.jpg" />
+</html>

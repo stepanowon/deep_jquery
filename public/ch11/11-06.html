@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>11-06(10-10 참조)</title>
+<style>
+div { margin:5px 5px 5px 5px; border:solid 1px gray; width:200px;
+	text-align: center }
+button.default { background-color: aqua; width:100px;
+	border: solid 1px gray; text-align: center; margin: 2px 1px 2px 1px;	}
+button.hover { background-color: purple; color:yellow; }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	//hover!!
+	//$("#a").find("button.default").on("mouseenter mouseleave", function() {
+	//	$(this).toggleClass("hover");
+	//});
+	
+	//$("#a").find("button.default").on({
+	//	mouseenter : function() {
+	//		$(this).addClass("hover");
+	//	},
+	//	mouseleave : function() {
+	//		$(this).removeClass("hover");
+	//	}
+	//});
+	
+	$("#a").find("button.default").on("mouseenter", function() {
+		$(this).addClass("hover");
+	}).on("mouseleave", function() {
+		$(this).removeClass("hover");
+	});
+	
+});
+</script>
+</head>
+<body>
+	<div id="a">
+		<button class="default">CEO</button>
+		<button class="default">회사소개</button>
+		<button class="default">사업영역</button>
+		<button class="default">제품소개</button>
+	</div>
+</body>
+</html>

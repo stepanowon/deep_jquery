@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>11-24</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("input.korean").on("keyup  keypress", function(e) {
+		var pat = /[^ㄱ-힣\s\,\.\"\']/g;
+		var v = $(this).val();
+		$(this).val(v.replace(pat, ""));
+	});
+});
+</script>
+</head>
+<body>
+	<input type="text" class="korean" /> <br />
+	<input type="text" class="korean" /> <br />
+	<input type="text" class="korean" /> <br />
+</body>
+</html>

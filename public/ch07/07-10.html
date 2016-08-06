@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>07-10</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#foods tr:odd").css("background-color", "aqua");
+    $("#foods tr:even").css("background-color", "#FFCCCC");
+    $("#foods tr:first").css("background-color", "purple").css("color", "yellow");
+    $("#foods tr:eq(3)").css("font-style", "italic");
+});
+</script>
+</head>
+<body>
+	<h1>음식 목록</h1>
+	<table id="foods">
+		<tr>
+			<th>ID</th><th>먹을거리</th><th>분류</th>
+		</tr>
+		<tr>
+			<td>F001</td><td>짜장면</td><td>중식</td>
+		</tr>
+		<tr>
+			<td>F002</td><td>라면</td><td>분식,한식</td>
+		</tr>
+		<tr>
+			<td>F003</td><td>김치찌개</td><td>한식</td>
+		</tr>
+		<tr>
+			<td>F004</td><td>돈까스</td><td>일식</td>
+		</tr>
+		<tr>
+			<td>F005</td><td>초밥</td><td>일식</td>
+		</tr>
+		<tr>
+			<td>F006</td><td>한우암소안심스테이크</td><td>양식</td>
+		</tr>
+	</table>
+</body>
+</html>

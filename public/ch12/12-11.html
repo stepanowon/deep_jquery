@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>12-11</title>
+<style>
+div#container { border: solid 1px gray; width:100px;
+	margin:10px 10px 10px 10px; padding:5px 5px 5px 5px; }
+div#box { width:150px; height:150px; background-color:blue;
+	position:absolute; top:100px; left:100px; }
+.trans_effect { border: 2px dotted gray; }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {		
+	for (var k in $.effects.effect) {
+		$("<button></button>").html(k).appendTo("#buttonlist");
+	}
+	
+	$("#buttonlist > button").click(function() {
+		var eff = $(this).html();
+		
+		var options = {};
+		if ( eff === "scale" ) {
+		  options = { percent: 10 };
+		} else if ( eff === "transfer" ) {
+		  options = { to: "button:last", className: "trans_effect" };
+		} else if ( eff === "size" ) {
+		 	options = { to: { width: 300, height: 30 } };
+		}
+	      
+		$("#box").effect(eff, options, 1000).delay(1000).hide(1, function() {
+			$(this).removeAttr("style");
+		});
+	});
+});
+</script>
+</head>
+<body>
+	<div id="buttonlist">
+	</div>
+	<div id="box" />
+</html>

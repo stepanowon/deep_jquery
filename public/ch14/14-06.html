@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>14-06</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$.ajax({
+		url : "/contact/list_long.jsp",
+		type : "GET",
+		timeout : 1900,
+		data : { pageno:2, pagesize:5 },
+		beforeSend : function(xhr, settings) {
+			console.log("Before Send");
+		}, 
+		success : function(data) {
+			console.log(data);
+		},
+		error : function(xhr, status, error) {
+			console.log(status + ", " + error);
+		},
+		complete : function(xhr, status) {
+			console.log("Complete");
+		}
+	});
+});
+</script>
+</head>
+<body>
+	<h2>console을 확인합니다.</h2>
+</body>
+</html>

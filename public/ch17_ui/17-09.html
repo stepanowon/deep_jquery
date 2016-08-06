@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>17-09</title>
+<link rel="stylesheet" 
+	href="https://code.jquery.com/ui/1.12.0/themes/humanity/jquery-ui.css" />
+<style>
+body { font-size: 70%; }
+#container { width:600px; height:300px; padding:10px 10px 10px 10px;
+	position:absolute; left:150px;  top:100px; 
+	border: solid 1px #aaaaaa; background-color: #ffdd88;  }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#dialog-confirm").dialog({
+		autoOpen: false,
+		modal: true,
+		resizable : false,
+		position : { my: "center", at: "center", of: "#container" },
+		closeText : "창닫기",
+		show : {
+	        effect: "slide",
+	        duration: 200
+		},
+		hide : {
+	        effect: "explode",
+	        duration: 200
+		},
+		buttons : {
+			" 전 송 " : function() {
+				$(this).dialog("close");
+				alert("전송 완료");
+			},
+			" 취 소 " : function() {
+				$(this).dialog("close");
+			}
+		},
+		dragStart : function(e, ui) {
+			console.log(ui);
+		},
+		dragStop : function(e, ui) {
+			console.log(ui);
+		}
+	});
+	
+	$("#open").button({
+		icons : { primary : "ui-icon-newwin" }
+	}).click(function() {
+		$("#dialog-confirm").dialog("open");
+	});
+
+	$("#close").button({
+		icons : { secondary : "ui-icon-closethick" }
+	});
+});
+</script>
+</head>
+<body>
+	<div id="container">
+		<button id="open">열기</button>
+		<button id="close">닫기</button>
+		<div id="dialog-confirm" title="정말로 전송하시겠습니까?">
+	  		<p>
+	  			<span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 20px 0;"></span>
+	  			현재 설정된 값으로 서버에 전송합니다. 괜찮으시겠습니까?
+	  		</p>
+		</div>	
+	</div>
+</body>
+</html>

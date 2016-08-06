@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>10-13</title>
+<style>
+div.box { border: solid 1px gray; }
+div#a1 { width:100px; height:30px; background-color: green; margin:2px 2px 2px 2px;  }
+div#a2 { width:50px; height:30px; background-color: green; margin:2px 2px 2px 2px; }
+div#a3 { width:150px; height:30px; background-color: green; margin:2px 2px 2px 2px; }
+div#b { width:80px; height:30px; background-color: orange; margin:2px 2px 2px 2px; }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#enlarge1").click(function() {
+		$("#content1 > div").outerWidth(function(i, old) {
+			return old * 2;
+		});
+	});
+	
+	$("#enlarge2").click(function() {
+		$("#b").width(200);
+	});
+});
+</script>
+</head>
+<body>
+	<div id="content1" class="box">
+		<button id="enlarge1">기존 가로폭의 2배로</button>
+		<div id="a1"></div>
+		<div id="a2"></div>
+		<div id="a3"></div>	
+	</div>
+	<div id="content2" class="box">
+		<button id="enlarge2">폭을 200px로</button>
+		<div id="b"></div>
+	</div>
+</body>
+</html>

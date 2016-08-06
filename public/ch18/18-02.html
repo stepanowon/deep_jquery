@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>18-02</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	var data = [
+	   { name:"홍길동", age:17, email:"gdhong@opensg.net" },
+	   { name:"박문수", age:25, email:"mspark@opensg.net" },
+	   { name:"방자", age:19, email:"banja@opensg.net" },
+	   { name:"향단이", age:20, email:"hyangdan@opensg.net" }
+	];
+
+	var arr =$.map(data, function(elem, index) {
+		var clone =$.extend({}, elem);
+		if (clone.age >= 20) {
+			clone.status = "over 20";
+		} else {
+			clone.status = "not over 20";
+		}
+		delete clone.age;
+		return clone;
+	});
+
+	console.log(data);
+	console.log(arr);
+});
+</script>
+</head>
+<body>
+	<div id="result"></div>
+</body>
+</html>

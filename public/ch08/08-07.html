@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>08-07</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#save").click(function() {
+		var arr = $("input.fruit:checked").map(function(i, element) {
+			return element.value;
+		}).get();
+		
+		$("#list").html(arr.join(", "));
+	});
+});
+</script>
+</head>
+<body>
+	<h2>지금 먹고 싶은 과일은?</h2>
+    <div id="content">
+		<input type="checkbox" class="fruit" value="1">사과, 
+		<input type="checkbox" class="fruit" value="2">배, 
+		<input type="checkbox" class="fruit" value="3">키위,
+		<input type="checkbox" class="fruit" value="4">포도<br/>
+		<input type="checkbox" class="fruit" value="5">딸기,
+		<input type="checkbox" class="fruit" value="6">귤,
+		<input type="checkbox" class="fruit" value="7">수박<br/>
+    </div>
+    <button id="save">선택 저장</button>
+    <div id="list"></div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>10-06</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#toggle").click(function() {
+		var inputs = $("#content").find("input.test");
+		if (inputs.is(":enabled") == true) {
+			inputs.attr("disabled", "disabled");
+		}  else {
+			//inputs.attr("disabled", null);
+			inputs.removeAttr("disabled");
+		}
+	});
+});
+</script>
+</head>
+<body>
+	<div id="content">
+		이름 : <input id="name" class="test" type="text" value="홍길동"/><br />
+		전화 : <input id="tel" class="test" type="text" value="010-2121-3345" /><br />
+		주소 : <input id="address" class="test" type="text" value="서울시" /><br />
+		<br/>
+		<button id="toggle">활성화/비활성화</button>	
+	</div>
+</body>
+</html>

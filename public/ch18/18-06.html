@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>18-06</title>
+<style>
+div#result { width:150px; border:solid 1px gray; height:150px; overflow:auto;}
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	//지연 객체의 생성
+	var d = $.Deferred();
+
+	d.always(function() {
+		$("#result").append("항상 실행<br/ >")
+	});
+	d.done(function() {
+		$("#result").append("첫번째 done!!<br />");
+	});
+	d.done(function() {
+		$("#result").append("두번째 done!!<br />");
+	})
+	d.done(function() {
+		$("#result").append("세번째 done!!<br />");
+	})
+	
+	$("#success").click(function() {
+		d.resolve();
+	});
+});
+</script>
+</head>
+<body>
+	<button id="success">성공!!</button>
+	<hr />
+	<div id="result"></div>
+</body>
+</html>

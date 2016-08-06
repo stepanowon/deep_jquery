@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>14-10</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	var jqxhr = $.ajax({
+		url : "/contact/list_long.jsp",
+		type : "GET",
+		data : { pageno:2, pagesize:5 },
+	});
+	
+	jqxhr.done(function(data, status, xhr) {
+		console.log(data);
+	});
+	
+	jqxhr.fail(function(xhr, status, error) {
+		console.log(status + ", " + error);
+	});
+	
+	jqxhr.always(function() {
+		console.log("Complete!!");
+	});	
+});
+</script>
+</head>
+<body>
+	<h2>console을 확인합니다.</h2>
+</body>
+</html>

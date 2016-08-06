@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>18-01</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	var data = [
+	   { name:"홍길동", age:17, email:"gdhong@opensg.net" },
+	   { name:"이몽룡", age:16, email:"mrlee@opensg.net" },
+	   { name:"성춘향", age:16, email:"chsung@opensg.net" },
+	   { name:"박문수", age:25, email:"mspark@opensg.net" },
+	   { name:"변학도", age:32, email:"hdbyun@opensg.net" },
+	   { name:"방자", age:19, email:"banja@opensg.net" },
+	   { name:"향단이", age:20, email:"hyangdan@opensg.net" }
+	];
+	
+	var overs = $.grep(data, function(elem, index) {
+		return elem.age >=20;
+	});
+	
+	var str = "";
+	for (var i=0; i < overs.length; i++) {
+		str += overs[i].name + ":" +overs[i].age + ", " +overs[i].email + "<br />";
+	}
+	$("#result").html(str);
+});
+</script>
+</head>
+<body>
+	<div id="result"></div>
+</body>
+</html>

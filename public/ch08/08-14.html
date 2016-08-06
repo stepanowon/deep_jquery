@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>08-14</title>
+<style>
+	div { width:300px; }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  $("#toBold").click(function() {
+    $( "#content" ).contents().filter(function(){
+        return this.nodeType === 3;
+    }).wrap( "<b></b>" );
+  });
+});
+</script>
+</head>
+<body>
+  <button id="toBold">텍스트 노드를 찾아 볼드체로</button>
+  <hr />
+  <div id="content">
+      김수한무
+      <div>거북이와 두루미</div>
+      삼천갑자 동방삭
+      <div>치치카포 사리사리센타</div>
+      워리워리 세브리깡
+  </div>
+</body>
+</html>

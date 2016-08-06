@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>08-12</title>
+<style>
+	div { width:300px; }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#a").children().css("text-decoration", "underline");
+	$("#a").children(".test").css("font-style", "italic");
+});
+</script>
+</head>
+<body>
+    <div id="a">
+    	김수한무
+    	<div>거북이와 두루미</div>
+    	<div class="test">삼천갑자 동방삭</div>
+    </div>
+    <div id="b">
+    	<div>치치카프 사리사리센타</div>
+    	<div>워리워리 세브리깡</div>
+    	<div>무두셀라 구름이</div>
+    </div>
+</body>
+</html>

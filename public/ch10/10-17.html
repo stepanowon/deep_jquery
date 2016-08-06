@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>10-17</title>
+<style>
+    #nations > thead > tr { background-color:purple; color:yellow; }
+    #nations > thead > tr > th { padding :0px 1px 0px 0px; width:150px; }
+    #nations > tbody > tr > td { border-bottom: solid 1px gray; }
+    .separator { background-color : aqua; }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#nations").find("tr:gt(0)").click(function() {
+		//var info = $(this).data();
+		var no = $(this).data("no");
+		var region = $(this).data("region");
+		alert("클릭된 국가 정보 => 번호 : " + no + ", 지역 : " +region);
+	});
+});
+</script>
+</head>
+<body>
+<table id="nations">
+<thead>
+    <tr><th>국가명</th><th>수도</th></tr>
+</thead>
+<tbody>
+    <tr data-no="1" data-region="america"><td>미국</td><td>워싱턴DC</td></tr>
+    <tr data-no="2" data-region="europe"><td>프랑스</td><td>파리</td></tr>
+    <tr data-no="3" data-region="europe"><td>영국</td><td>런던</td></tr>
+    <tr data-no="4" data-region="asia"><td>중국</td><td>베이징</td></tr>
+    <tr data-no="5" data-region="asia"><td>태국</td><td>방콕</td></tr>
+    <tr data-no="6" data-region="africa"><td>모로코</td><td>라바트</td></tr>
+    <tr data-no="7" data-region="asia"><td>라오스</td><td>비엔티안</td></tr>
+    <tr data-no="8" data-region="asia"><td>베트남</td><td>하노이</td></tr>
+</tbody>
+</table><br/>
+<div id="asia" data-region-no="1">아시아의 지역 코드</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>17-03</title>
+<style>
+div.test { background-color: yellow; margin-bottom: 5px;
+	border:solid 1px black; width:100px; }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+jQuery.fn.setSize = function(width, height) {
+	this.css("width", width+"px");
+	this.css("height", height+"px");
+};
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#call_plugin").click(function() {
+		$("div.test").setSize(300,100);	
+	});
+});
+</script>
+</head>
+<body>
+	<button id="call_plugin">플러그인 호출</button>
+	<br/><br/>
+	<div class="test">Hello 1</div>
+	<div class="test">Hello 2</div>
+	<div class="test">Hello 3</div>
+</body>
+</html>

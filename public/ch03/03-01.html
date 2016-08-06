@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title></title>
+<script type="text/javascript">
+//1. 생성자 함수 방법
+var f1 = new Function("x", "y", "return x+y");
+console.log(f1(7,5));```//결과 : 12
+
+//선언적 함수 방법
+function f2(x,y) {
+    return x-y;
+}
+console.log(f2(7.5));   //결과 : 2
+
+//함수 리터럴 방법
+var f3 = function(x,y) {
+    return x*y;
+}
+console.log(f2(7.5));  //결과 : 35
+</script>
+</head>
+<body>
+
+</body>
+</html>

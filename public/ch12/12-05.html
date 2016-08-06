@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>12-05</title>
+<style>
+img#a { width:320px; height:240px; }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {		
+	$("#start").click(function() {
+		$("#a").slideUp(2000);
+		$("#a").slideDown(2000);
+		$("#a").fadeOut(2000);
+		$("#a").fadeIn(2000);
+	});
+});
+</script>
+</head>
+<body>
+	<button id="start">Start</button>
+	<br />
+	<img id="a" src="images/free1.jpg" />
+</html>

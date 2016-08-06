@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>14-13</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	var xhr1 = $.get("/contact/list_long.jsp", {pageno:1});
+	var xhr2 = $.get("/contact/list.jsp", {pageno:3, pagesize:5 });
+	
+	$.when(xhr1, xhr2).done(function(res1, res2) {
+		console.log(res1);
+		console.log(res2);
+		var totalcount = res1[0].contacts.length + res2[0].contacts.length;
+		console.log("두 번의 요청으로 조회된 데이터 건수의 합 : " + totalcount);
+	});
+});
+</script>
+</head>
+<body>
+	<h2>console을 확인합니다.</h2>
+</body>
+</html>

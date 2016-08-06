@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title></title>
+<script type="text/javascript">
+var data = {  
+   "_id" : "mspark11",  
+   "name" : "박명수",   
+   "phones" : [ "010-2452-8864", "02-2214-3521" ],  
+   "title" : "수석 컨설턴트",   
+   "hiredate" : new Date("2010-09-01")
+};
+var str = JSON.stringify(data, function(key, value) {
+    if (key == "hiredate") {
+        return new Date(value).getTime();
+    } else {
+        return value;   
+    }
+});
+
+console.log(str);
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

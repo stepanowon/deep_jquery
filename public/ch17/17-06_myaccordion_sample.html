@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>17-06</title>
+<link rel="stylesheet" href="css/jquery.myaccordion.css" />
+<style>
+
+</style>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.myaccordion.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$.myaccordion.setDefaults({ duration:200 });
+	$("#acc1").myaccordion();
+	
+	$("#acc2").myaccordion({ mode:"toggle", width:500, duration:1000 });
+});
+</script>
+</head>
+<body>
+    <h2>어코디언 샘플 페이지</h2>
+	<div id="acc1" class="accordion">
+		<div class="header">제목1</div>
+		<div class="content">내용1<br/><br/><br/><br/></div>
+		<div class="header">제목2</div>
+		<div class="content">내용2<br/><br/><br/><br/></div>
+		<div class="header">제목3</div>
+		<div class="content">내용3<br/><br/><br/><br/></div>
+		<div class="header">제목4</div>
+		<div class="content">내용4<br/><br/><br/><br/></div>
+    </div>
+    <hr />
+	<div id="acc2" class="accordion">
+		<div class="header">title 1</div>
+		<div class="content">content 1<br/><br/><br/><br/></div>
+		<div class="header">title 2</div>
+		<div class="content">content 2<br/><br/><br/><br/></div>
+		<div class="header">title 3</div>
+		<div class="content">content 3<br/><br/><br/><br/></div>
+		<div class="header">title 4</div>
+		<div class="content">content 4<br/><br/><br/><br/></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>10-21</title>
+<style>
+#container1, #container2 { width: 300px; black; float:left; margin:5px 5px 5px 5px; }
+#content1, #content2 { width:300px; border:solid 1px black; }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("<h3>prependTo</h3>").prependTo("#content1");
+	$("<h3>appendTo</h3>").appendTo("#content1");
+	$("<h3>insertBefore</h3>").insertBefore("#content1");	
+	$("<h3>insertAfter</h3>").insertAfter("#content1");
+	
+	$("#content2").prepend("<h3>prepend1</h3>", "<h3>prepend2</h3>");
+	$("#content2").append("<h3>append1</h3>", "<h3>append2</h3>");
+	$("#content2").before("<h3>before</h3>");
+	$("#content2").after("<h3>after</h3>");
+});
+</script>
+</head>
+<body>
+	<div id="container1">
+		<div id="content1">
+			<div>기존 컨텐트</div>
+			<div>기존 컨텐트</div>
+		</div>
+	</div>
+	<div id="container2">
+		<div id="content2">
+			<div>기존 컨텐트</div>
+			<div>기존 컨텐트</div>
+		</div>
+	</div>	
+</body>
+</html>

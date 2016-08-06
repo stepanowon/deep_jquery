@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title></title>
+<script type="text/javascript">
+var data = {
+    class : "3-3",
+    subject : "korean",
+    scores : [
+        { name : "설현", score : 90 },
+        { name : "혜리", score : 70 },
+        { name : "채빈", score : 100 },
+        { name : "설리", score : 90 },
+        { name : "루나", score : 60 },
+        { name : "나나", score : 50 },
+        { name : "하니", score : 90 }
+    ]
+}; 
+    
+//80점 이상의 성적인 학생들의 명단 추출
+var initialValue = "";
+var result = data.scores.reduce(function(preVal, curVal, curIdx) {
+    if (curVal.score >= 80) {
+        return  preVal + curVal.name + " ";
+    } else {
+        return preVal;
+    }
+}, initialValue);
+console.log("---80점 이상인 학생 명단---");
+console.log(result);
+</script>
+</head>
+<body>
+    
+    </body>
+</html>

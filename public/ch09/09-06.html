@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>09-06</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("button.test").click(function() {
+		//$("#result").html($(this).attr("data-no"));
+		$("#result").html(this.attributes["data-no"].value);
+	});
+});
+</script>
+</head>
+<body>
+	<button id="btn1" class="test" data-no="1">버튼1</button>
+	<button id="btn2" class="test" data-no="2">버튼2</button>
+	<button id="btn3" class="test" data-no="3">버튼3</button>
+	<button id="btn4" class="test" data-no="4">버튼4</button>
+	<hr />
+	클릭된 버튼 : <span id="result"></span> 
+</body>
+</html>

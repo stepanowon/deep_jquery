@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>10-18</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	function createTimeString() {
+		return "<h1>" + (new Date()).toLocaleTimeString() +"</h1>";
+	}
+	
+	$("#savehtml").click(function() {
+		$("#content").html(createTimeString());
+	});
+	$("#readhtml").click(function() {
+		var s = $("#content").html();
+		alert(s);
+	});
+	$("#savetext").click(function() {
+		$("#content").text(createTimeString());
+	});
+	$("#readtext").click(function() {
+		var s = $("#content").text();
+		alert(s);
+	});
+});
+</script>
+</head>
+<body>
+	<button id="savehtml">html(val)</button>
+	<button id="readhtml">html()</button>
+	<button id="savetext">text(val)</button>
+	<button id="readtext">text()</button>
+	<div id="content"></div>
+</body>
+</html>

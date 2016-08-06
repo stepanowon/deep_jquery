@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>10-03</title>
+<style>
+#places > img { width:200px; }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	var places = [
+	    { title : "남아공, 케이프타운",  image : "images/capetown.jpg" },
+	    { title : "멕시코, 칸쿤-치첸이사",  image : "images/chichenitza.jpg" },
+	    { title : "페루, 마추피추",  image : "images/machu.jpg" },
+	    { title : "중국, 만리장성" },	    
+	    { title : "미국, 나이아가라 폭포",  image : "images/niagarafalls.jpg" },
+	    { title : "인도, 타지마할",  image : "images/tajmahal.jpg" }
+	];	
+		
+	$("#places").find("img").attr("src", function(i) {
+		if (places[i].image) {
+			return places[i].image;
+		}
+	}).attr("alt", function(i) {
+		return "죽기전에 가봐야할 여행지 : " + places[i].title;
+	});
+});
+</script>
+</head>
+<body>
+    <div id="places">
+		<img src="images/noimage.jpg"  />
+		<img src="images/noimage.jpg"  />
+		<img src="images/noimage.jpg"  />
+		<img src="images/noimage.jpg"  />
+		<img src="images/noimage.jpg"  />
+		<img src="images/noimage.jpg"  />
+    </div>
+</body>
+</html>

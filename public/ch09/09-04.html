@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>09-04</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	console.time("create bulk element");
+	var str = "";
+	for (var i=0; i < 100; i++) {
+		var a = "a"+i;
+		str += "<div id='"+a+"'>";
+		for (var j=0; j < 100; j++) {
+			var b = "b_" + i + "_" +j;
+			str +="<div id='" + b + "'";
+			if (j%4==0) {
+				str+= " class='main'";
+			}
+			str+=">" + i + "," + j + "</div>";
+		}
+		str+= "</div>"
+	}
+	$("#content").html(str);
+	$("#b_30_50").addClass("test").wrap("<span></span>");
+	console.timeEnd("create bulk element");
+	
+	
+	//---후손 선택자
+	console.time("select by descendant selector 1000");
+	for (var i=0; i < 1000; i++) {
+		$("#a50  .main").css("color", "blue");
+	}
+	console.timeEnd("select by descendant selector 1000");
+	
+	//---find() 메서드
+	console.time("find method 1000");
+	for (var i=0; i < 1000; i++) {
+		$("#a50").find(".main").css("color", "blue");
+	}
+	console.timeEnd("find method 1000");
+	
+	//---객체 cache 후 find() 메서드
+	console.time("cache and find method 1000");
+	var a50 = $("#a50");
+	for (var i=0; i < 1000; i++) {
+		a50.find(".main").css("color", "blue");
+	}
+	console.timeEnd("cache and find method 1000");
+	
+	
+	
+});
+</script>
+</head>
+<body>
+    <div id="content"></div>
+</body>
+</html>

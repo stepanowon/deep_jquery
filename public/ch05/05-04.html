@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title></title>
+<script type="text/javascript">
+//사용법 : splice(index, deleteCount, insItem1, insItem2, ...)
+var arr = [10,20,30,40,50];
+//---삽입
+arr.splice(1,0,"hello");    //2번째 삭제는 하지 않고 "hello" 추가
+//---현재 상태 : [10, "hello", 20, 30, 40, 50]
+arr.splice(3, 0, "world 1","world 2")       //여러개 요소를 삽입
+//---현재 상태 : [10, "hello", 20, "world 1", "world 2", 30, 40, 50]
+arr.splice(5, 2)    //5번 인덱스에서 2개 삭제
+//---현재 상태 : [10, "hello", 20, "world 1", "world 2", 50]
+arr.splice(2, 1, "jquery!!");   //2번 인덱스 위치에서 1개 요소 삭제하고 "jquery!!" 추가
+//---현재 상태 : [10, "hello", "jquery!!", "world 1", "world 2", 50]
+console.log(arr);
+    
+</script>
+</head>
+<body>
+    
+</body>
+</html>

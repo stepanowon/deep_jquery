@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title></title>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+//한글 또는 공백이 아닌 문자열 패턴
+var pat = /[^ㄱ-ㅎ|ㅏ-ㅑ|가-힣|\s]/g;
+var str = "'한글도' 있고, English도 있고, 日本語도 있다.";
+var str2 = str.replace(pat, "_");
+console.log(str2);
+</script>
+</head>
+<body>
+
+</body>
+</html>

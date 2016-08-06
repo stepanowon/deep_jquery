@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>12-07</title>
+<style>
+img#a { width:128px; height:96px; position: absolute; top:150px; left: 10px; }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {		
+	$("#start").click(function() {
+		$("#a").animate({
+			left : 200, 
+			top : 200
+		}, 2000).animate({
+			width : "+=128",
+			height: "+=96",
+			top: "-=48", 
+			left: "-=64"
+		}, 2000).delay(4000).animate({
+			opacity:0.3
+		}, 1000);
+	});
+	
+	$("#clearq").click(function() {
+		$("#a").clearQueue();
+	});
+	
+	$("#stop").click(function() {
+		$("#a").stop(false, true);
+	});
+	
+	$("#finish").click(function() {
+		$("#a").finish();
+	});
+});
+</script>
+</head>
+<body>
+	<button id="start">Start</button>
+	<button id="clearq">Clear Queue</button>
+	<button id="stop">Stop Current Effect</button>
+	<button id="finish">Finish Effect</button>
+	<br />
+	<img id="a" src="images/free5.jpg" />
+</html>

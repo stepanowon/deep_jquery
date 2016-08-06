@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>18-04</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+var message = "전역 메시지";
+$(document).ready(function() {
+	var obj = { message:"객체 메시지", v : 100 };
+	function test() {
+		console.log(this.message);
+	}
+	
+	test();		//"전역 메시지"
+	
+	var s = $.proxy(test, obj);		//this가 obj로 바인딩된 새로운 함수 리턴
+	s();		//"객체 메시지"
+});
+</script>
+</head>
+<body>
+	<div id="result"></div>
+</body>
+</html>

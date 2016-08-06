@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>10-04</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	var sales = [
+	    { amount : 2000000, discountrate : 0.05 },
+	    { amount : 3000000, discountrate : 0.15 },
+	    { amount : 1000000, discountrate : 0.1 },
+	    { amount : 4000000, discountrate : 0.2 }
+	];
+	
+	$("#addSalesInfo").click(function() {
+		$("#sales").find("input").attr("value", function(i, old) {
+			return (sales[i].amount * (1-sales[i].discountrate)) + parseInt(old);
+		});
+	});
+});
+</script>
+</head>
+<body>
+    <div id="sales">
+    	아이패드 : <input type="text" id="a" value="1500000" /><br />
+    	맥북에어 : <input type="text" id="b" value="2000000" /><br />
+    	맥북프로 : <input type="text" id="c" value="3000000" /><br />
+    	갤럭시탭 : <input type="text" id="d" value="1000000" /><br />    	
+    	<button id="addSalesInfo">기존 매출에 신규 매출 정보 추가</button>
+    </div>
+</body>
+</html>

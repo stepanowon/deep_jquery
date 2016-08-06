@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>16-03</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script src="js/jquery.tmpl.js"></script>
+<script type="text/javascript">
+// https://github.com/BorisMoore/jquery-tmpl
+$(document).ready(function() {		
+	$.get("/contact/list.jsp", function(data) {
+		console.log(data);
+		$("#container").empty();
+		$("#contact_template").tmpl(data.contacts).appendTo("#container");
+	});
+});
+</script>
+ <script id="contact_template" type="text/x-jquery-tmpl">
+	<tr>
+		<td>${no}</td>
+		<td>${name}</td>
+		<td>${tel}</td>
+		<td>${address}</td>
+	</tr>
+</script>
+</head>
+<body>
+	<table id="list">
+		<thead>
+			<tr><th>번호</th><th>이름</th><th>전화번호</th><th>주소</th></tr>
+		</thead>
+		<tbody id="container">
+		
+		</tbody>
+	</table>
+</body>
+</html>

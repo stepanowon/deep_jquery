@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Inset yout title</title>
+<script type="text/javascript">
+var p1 = { name:"박문수", age:30 };
+p1["email"] = "mspark@hotmail.com";
+p1.address = "서울시 강남구 역삼동";
+
+console.log(p1.email);
+console.log(p1["address"]);
+
+delete p1.email;
+    
+p1.getInfo = function() { 
+    return this.name + "님의 나이 : " + this.age;
+};
+    
+console.dir(p1);
+</script>
+</head>
+<body>
+</body>
+</html>

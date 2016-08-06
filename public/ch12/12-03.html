@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>12-03</title>
+<style>
+div#container { margin: 10px 10px 10px 10px; }
+img.pic { width:120px; height: 90px; }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {		
+	$("#toggle_img").click(function() {
+		$("#a1").toggle(1000);
+		$("#a2").toggle(1000);
+		$("#a3").toggle(1000);
+		$("#a4").toggle(1000);
+		$("#a5").toggle(1000);
+	});
+});
+</script>
+</head>
+<body>
+	<button id="toggle_img">toggle</button>
+	<div id="container">
+		<img id="a1" class="pic" src="images/free1.jpg" />
+		<img id="a2" class="pic" src="images/free2.jpg" />
+		<img id="a3" class="pic" src="images/free3.jpg" />
+		<img id="a4" class="pic" src="images/free4.jpg" />
+		<img id="a5" class="pic" src="images/free5.jpg" />
+	</div>
+</html>

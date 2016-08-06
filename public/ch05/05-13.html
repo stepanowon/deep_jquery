@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title></title>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+var pat1 = /01[016789]-\d{3,4}-\d{4}/;
+var pat2 = /01[016789]-\d{3,4}-\d{4}/g;
+
+var str = "홍길동님의 전화번호는 010-2224-3331이고, 이몽룡님의 전화번호는 016-316-9765이다.";
+
+var list1 = str.match(pat1);
+var list2 = str.match(pat2);
+
+console.log(list1);
+console.log(list2);
+</script>
+</head>
+<body>
+
+</body>
+</html>

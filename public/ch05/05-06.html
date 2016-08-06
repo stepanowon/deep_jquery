@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title></title>
+<script type="text/javascript">
+Array.prototype.sort2 = function(fn) {
+    if (typeof(fn) == "function" ) {
+       for (var i=0; i < this.length-1; i++) {
+          for (var j=i+1; j < this.length; j++) {
+             var result = fn(this[i], this[j]);
+             if (result > 0) {
+                var temp = this[i];
+                this[i] = this[j];
+                this[j] = temp;
+             }
+          }
+       }
+    } else {
+       //요소의 값만으로 정렬하도록 함.
+    }
+}
+
+
+var data2 = [ 70,20,40,50,60,100 ];
+data2.sort2(function(a,b) {
+    return b-a;
+});    
+console.log(data2);
+</script>
+</head>
+<body>
+    
+</body>
+</html>

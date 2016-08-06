@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>11-11</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#google").on("click", function(e) {
+		if (confirm("정말로 구글로 이동할까요?") == false) {
+			e.preventDefault();
+		}
+	});
+	
+	$(document).on("contextmenu", function(e) {
+		e.preventDefault();
+	});
+});
+</script>
+</head>
+<body>
+	<a id="google" href="http://google.com">구글!!</a>
+</body>
+</html>

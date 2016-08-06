@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>10-15</title>
+<style>
+    div.bg { width:800px; height:300px; background-color:aqua;
+ 	    margin: 5px 5px 5px 5px; }
+    div#outer { border:solid 1px black; background-color: yellow;
+        width:600px; height:400px; padding: 10px 10px 10px 10px;
+	    position:absolute; top: 100px; left:50px; }
+    div#inner { border:solid 1px black; background-color: orange;
+        width:100px; height:100px; position:absolute; top:100px; left:50px; }
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#inner").click(function() {
+		var coor1 = $(this).position();
+		var coor2 = $(this).offset();
+		var parent = $(this).offsetParent();
+		
+		console.log(coor1);
+		console.log(coor2);
+		console.log(parent.attr("id"));
+	});
+	
+	$("#changePos").click(function() {
+		var x = $(this).offset().left + $(this).outerWidth();
+		var y = $(this).offset().top + $(this).outerHeight();
+		console.log("이동 좌표 : " + x + ", " + y);	
+		$("#inner").offset({ top:y, left:x });
+	});
+});
+</script>
+</head>
+<body>
+	<button id="changePos">#inner를 이 버튼의 bottom,right로 위치하게 함</button>
+	<div class="bg"></div><div class="bg"></div>
+	<div class="bg"></div><div class="bg"></div>
+	<div id="outer">
+		<div id="inner"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title></title>
+<script type="text/javascript">
+function calcList() {
+    var list = [];
+    function inner(x,y) {
+        var result = x + y;
+        list.push(x + "+" + y + "=" + result);   
+        return result;
+    }
+    
+    inner.getlist = function() {
+        return list;    
+    };
+    
+    return inner;
+}
+    
+var add1 = calcList();
+var add2 = calcList();
+console.log(add1(3,4));
+console.log(add1(11,5));
+console.log(add2(3,4));
+console.log(add1(6,8));
+console.log(add2(5,3));
+
+console.log(add1.getlist());
+console.log(add2.getlist());
+</script>
+</head>
+<body>
+
+</body>
+</html>
