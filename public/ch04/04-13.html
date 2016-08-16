@@ -2,19 +2,19 @@
 <html lang="">
 <head>
 <meta charset="utf-8">
-<title></title>
+<title>04-13</title>
 <script type="text/javascript">
-function Person(name, age) {
-    this.name = name;
-    this.age = age;
+function test() {
+   console.log(this);
 }
-    
-var p1 = new Person("홍길동", 20);
-var p2 = new Person("박문수", 30);
 
-console.dir(p1);
-console.dir(p2);
-    </script>
+console.log(this);
+test();
+
+var p1 = { name:"홍길동", age:20 };
+p1.test = test;
+p1.test();
+</script>
 </head>
 <body>
 

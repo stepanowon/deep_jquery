@@ -2,19 +2,31 @@
 <html lang="">
 <head>
 <meta charset="utf-8">
-<title></title>
+<title>04-06</title>
 <script type="text/javascript">
-var json = '{"_id":"mspark11","name":"박명수","phones":["010-2452-8864","02-2214-3521"],"title":"수석 컨설턴트","hiredate":1283299200000}';
-    
-var p2 = JSON.parse(json, function(key, value) {
-    if (key == "hiredate") {
-        return new Date(value);
-    } else {
-        return value;   
-    }
-});
-    
-console.dir(p2);
+var a = [100,200,300];
+a[0] = "hello"; //기존 요소값 변경
+a[4] = "world"; // ["hello", 200, 300, undefined, "world" ]
+console.log(a.length); // 5
+console.log(a);
+
+a.push(400); //push는 마지막 위치에 추가
+console.log(a); // ["hello", 200, 300, undefined, "world", 400 ]
+console.log(a.length); //6
+
+a.splice(3, 2); //3번 위치(4번째)에서 2개를 삭제한다.
+console.log(a); // ["hello", 200, 300, 400 ]
+
+a.splice(3, 0, "jquery"); //3번 위치에서 'jquery' 문자열 삽입
+console.log(a); // ["hello", 200, 300, "jquery", 400 ]
+
+a.length = 10;
+console.log(a); // ["hello", 200, 300, "jquery", 400, undefined x 5 ]
+console.log(a.length); //10
+
+a.length = 2;
+console.log(a); // ["hello", 200 ]
+console.log(a.length); //2
 </script>
 </head>
 <body>

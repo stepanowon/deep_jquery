@@ -2,20 +2,25 @@
 <html lang="">
 <head>
 <meta charset="utf-8">
-<title></title>
-<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<title>04-16</title>
 <script type="text/javascript">
-$(document).ready(function() {
-    $("div").click(function() {
-        alert($(this).html())
-    });
-});
-    </script>
+var p1 = { nick:"박문수", age:20 };
+p1.getInfo = function() {
+  return this.nick + "님의 나이 : " + this.age;
+};
+
+p1.getInfo2 = function() {
+  function inner() {
+    return this.nick + " is " + this.age + " years old.";
+  }
+  return inner.apply(this);
+}
+
+console.log(p1.getInfo());
+console.log(p1.getInfo2());
+</script>
 </head>
 <body>
-    <div>까망이의 생일 선물</div>
-    <div>늑대가 나타났다!</div>
-    <div>풍선부는 요술쟁이</div>
-    <div>거울은 따라쟁이</div>
+
 </body>
 </html>
