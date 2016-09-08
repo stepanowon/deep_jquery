@@ -2,24 +2,23 @@
 <html lang="">
 <head>
 <meta charset="utf-8">
-<title></title>
+<title>04-15</title>
 <script type="text/javascript">
-function Person(name, age) {
-    this.name = name;
-    this.age = age;
+function test(x,y) {
+  var result = x+y;
+  this.result = result;
 }
-    
-Person.prototype.getInfo = function() {
-  return this.name + "님의 나이 : " + this.age;  
-};
-    
-var p1 = new Person("홍길동", 20);
-var p2 = new Person("박문수", 30);
-var p3 = new Person("이몽룡", 22);
-console.dir(p1);
-console.dir(p2);
-console.dir(p3);
-    </script>
+test(1,2);
+console.log(window.result);
+
+var p1 = { name:"홍길동" };
+test.apply(p1, [ 3, 4 ]);
+console.log(p1.result);
+
+var p2 = { name:"이몽룡" };
+test.call(p2, 5, 6);
+console.log(p2.result);
+</script>
 </head>
 <body>
 

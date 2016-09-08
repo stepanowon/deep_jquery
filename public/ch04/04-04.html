@@ -2,14 +2,16 @@
 <html lang="">
 <head>
 <meta charset="utf-8">
-<title></title>
+<title>04-04</title>
 <script type="text/javascript">
-var a = [ 10, 20, 30, 40, 50 ];
-a.splice(2,1);  //2번 인덱스 위치에서 1개의 요소를 삭제
-//현재 상태 : [10,20,40,50]
-a.splice(3,0,"hello");  //3번 인덱스 위치에서 삭제는 수행하지 않고 "hello" 삽입
-//현재 상태 : [10,20,40,"hello",50]
-console.log(a);
+var p1 = { name:"홍길동", age:20, email:"gdhong@gmail.com" };
+p1.getInfo = function() {
+   return this.name + "님의 나이 : " + this.age;
+}
+
+for (var k in p1) {
+   console.log(k + " ---> " + p1[k]);
+}
 </script>
 </head>
 <body>

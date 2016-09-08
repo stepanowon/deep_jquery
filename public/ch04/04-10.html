@@ -2,23 +2,25 @@
 <html lang="">
 <head>
 <meta charset="utf-8">
-<title></title>
+<title>04-10</title>
 <script type="text/javascript">
-function test(x,y) {
-    var result = x+y;
-    this.result = result;
-}
+var data = {
+  "_id" : "mspark11",
+  "name" : "박명수",
+  "phones" : [ "010-2452-8864", "02-2214-3521" ],
+  "title" : "수석 컨설턴트",
+  "hiredate" : new Date("2010-09-01")
+};
 
-test(1,2);
-console.log(window.result);
-    
-var p1 = { name:"홍길동" };
-test.apply(p1, [ 3, 4 ]);
-console.log(p1.result);
+var str = JSON.stringify(data, function(key, value) {
+  if (key == "hiredate") {
+     return new Date(value).getTime();
+  } else {
+     return value;
+  }
+});
 
-var p2 = { name:"이몽룡" };
-test.call(p2, 5, 6);
-console.log(p2.result);
+console.log(str);
 </script>
 </head>
 <body>

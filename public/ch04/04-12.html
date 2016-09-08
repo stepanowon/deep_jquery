@@ -2,15 +2,17 @@
 <html lang="">
 <head>
 <meta charset="utf-8">
-<title></title>
+<title>04-12</title>
 <script type="text/javascript">
-var p1 = { name : "홍길동", age : 20 };
-var p2 = { nama : "아이패드", price : 299000 };
-console.log(p1.name);   
-console.log(p2.name);   //undefined!!
-    
-console.dir(p1);
-console.dir(p2);
+var p1 = { name:"홍길동", age: 20, email:"gdhong@opensg.net" };
+console.log(p1.name);
+console.log(p1["name"]);
+
+for (var key in p1) {
+  console.log(key + "-->" + p1[key]);
+}
+
+console.log(p1.hasOwnProperty("age"));
 </script>
 </head>
 <body>

@@ -2,25 +2,16 @@
 <html lang="">
 <head>
 <meta charset="utf-8">
-<title></title>
+<title>04-05</title>
 <script type="text/javascript">
-var data = {  
-   "_id" : "mspark11",  
-   "name" : "박명수",   
-   "phones" : [ "010-2452-8864", "02-2214-3521" ],  
-   "title" : "수석 컨설턴트",   
-   "hiredate" : new Date("2010-09-01")
-};
-var str = JSON.stringify(data, function(key, value) {
-    if (key == "hiredate") {
-        return new Date(value).getTime();
-    } else {
-        return value;   
-    }
-});
+var a1 = new Array(); //생성자 함수를 이용해 배열 생성
+a1[0] = "hello";
+a1[1] = "world";
+a1.push(1000);
+console.log(a1);
 
-console.log(str);
-
+var a2 = [ "hello", "world", 1000 ]; //리터럴 방식을 이용해 배열 생성
+console.log(a2);
 </script>
 </head>
 <body>

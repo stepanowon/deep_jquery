@@ -2,18 +2,19 @@
 <html lang="">
 <head>
 <meta charset="utf-8">
-<title></title>
+<title>04-08</title>
 <script type="text/javascript">
-function test() {
-    console.log(this);   
+var a = [100,200,300];
+a.name = "홍길동";
+a.age = 20;
+a.email = "gdhong@gmail.com";
+
+console.dir(a);
+
+for (var k in a) {
+   console.log(k + "--->" + a[k]);
 }
-    
-console.log(this);
-test();
-    
-var p1 = { name:"홍길동", age:20 };
-p1.test = test;
-p1.test();
+
 </script>
 </head>
 <body>

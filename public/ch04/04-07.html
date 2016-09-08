@@ -2,18 +2,14 @@
 <html lang="">
 <head>
 <meta charset="utf-8">
-<title></title>
+<title>04-07</title>
 <script type="text/javascript">
-var p1 = { name:"홍길동", age: 20, email:"gdhong@opensg.net" };
-console.log(p1.name);
-console.log(p1["name"]);
-    
-for (var key in p1) {
-    console.log(key + "-->" + p1[key]);
-}
-    
-console.log(p1.hasOwnProperty("age"));
+var a = [100,200,300];
+a.name = "홍길동";
+a.age = 20;
+a.email = "gdhong@gmail.com";
 
+console.dir(a);
 </script>
 </head>
 <body>

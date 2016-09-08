@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<title>04-20</title>
+<script type="text/javascript">
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+Person.prototype.getInfo = function() {
+  return this.name + "님의 나이 : " + this.age;
+};
+
+var p1 = new Person("홍길동", 20);
+var p2 = new Person("박문수", 30);
+var p3 = new Person("이몽룡", 22);
+console.dir(p1);
+console.dir(p2);
+console.dir(p3);
+</script>
+</head>
+<body>
+
+</body>
+</html>
