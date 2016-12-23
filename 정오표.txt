@@ -15,6 +15,7 @@
 4. 315페이지 그림 10-18 실행 결과
    $("#a").css("color") 
       "rgb(165, 42, 42)"  
+      
 5. 487페이지에서 소개된 jsonview 크롬 확장 앱은 jsonViewer라 확장 프로그램으로 변경되었습니다. 다음 url을 참조하세요.
     https://chrome.google.com/webstore/detail/json-viewer/aimiinbnnkboelefkjlenlgimcabobli?utm_source=chrome-ntp-icon
 
